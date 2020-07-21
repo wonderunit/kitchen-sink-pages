@@ -1,0 +1,57 @@
+@font-face {
+    font-family: THICCCBoi;
+    font-weight: 400;
+    src: url("font/THICCCBOI-Regular.woff2") format("opentype");
+}
+
+.container {
+    max-width: min(70vw, 1000px);
+    margin: auto;
+    
+    font-family: 'THICCCBoi';
+    letter-spacing: 0.03em;
+    -webkit-font-smoothing: subpixel-antialiased;
+    line-height: 1.4;
+    color: darkslategrey;
+    position: relative;
+}
+
+p {
+    font-size: min(max(2vw, 1em), 2em);
+    position: relative;
+    margin-block-start: 1.5em;
+    margin-block-end: 1.5em;
+}
+
+.sidenote {
+    margin-right: -170px;
+    position: absolute;
+    right: 0;
+    top: auto; /* default */
+    width: 150px;
+    font-size: 1vw;
+    line-height: 1.2;
+  }
+
+p:first-of-type {
+    font-size: min(max(3vw, 1.5em), 3em);
+    font-weight: 400;
+}
+
+h1 {
+    font-size: 6vw; 
+    font-weight: 800;
+    line-height: 1;
+}
+
+h2 {
+    font-size: 5vw; 
+    font-weight: 800;
+    line-height: 1;
+}
+
+h3 {
+    font-size: 3vw; 
+    font-weight: 800;
+    line-height: 1;
+}
