@@ -23,16 +23,6 @@ p {
     margin-block-end: 1.5em;
 }
 
-.sidenote {
-    margin-right: -170px;
-    position: absolute;
-    right: 0;
-    top: auto; /* default */
-    width: 150px;
-    font-size: 1vw;
-    line-height: 1.2;
-  }
-
 p:first-of-type {
     font-size: min(max(3vw, 1.5em), 3em);
     font-weight: 400;
@@ -54,4 +44,39 @@ h3 {
     font-size: 3vw; 
     font-weight: 800;
     line-height: 1;
+}
+
+/* sidenotes */
+
+aside[name] {
+    display: none;
+}
+@media (min-width: 640px) {
+    body {
+        counter-reset: sidenoteCount 1;
+    }
+    span[name]::after {
+        vertical-align: super;
+        display: inline;
+        content: " " counter(sidenoteCount) "";
+    }
+    aside[name] {
+        display: block;
+        position: absolute;
+        width: 15vw;
+        right: -15vw;
+        top: auto;
+        font-size: 1vw;
+        line-height: 1.2;
+    }
+    aside[name]::before {
+        vertical-align: super;
+        display: inline;
+
+        content: " " counter(sidenoteCount) "";
+    }
+    aside[name]::after {
+        counter-increment: sidenoteCount;
+        content: " ";
+    }
 }
