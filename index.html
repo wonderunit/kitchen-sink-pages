@@ -4,6 +4,13 @@
 <head>
   <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- photoswipe -->
+  <link rel="stylesheet" href="vendor/photoswipe/photoswipe.css">
+  <link rel="stylesheet" href="vendor/photoswipe/default-skin/default-skin.css">
+  <script src="vendor/photoswipe/photoswipe.min.js"></script>
+  <script src="vendor/photoswipe/photoswipe-ui-default.min.js"></script>
+
   <link rel="stylesheet" href="css/main.css">
 </head>
 
@@ -20,6 +27,22 @@
       </aside>
 
       <p>In the future, any person with a story idea will be able to produce their stories into full reality. They won't be restricted by where they came from or who they are now, but rather, empowered because of where they came from and who they are now. They won't worry about money or possessing technology. They will have a place to create stories, find others to work with, and find audiences that connect with their work. They will be free to play and explore creative story ideas ultimately creating visual stories with their most valuable asset: their unique point of view.</p>
+
+      <div class="gallery" data-gallery itemscope itemtype="http://schema.org/ImageGallery">
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="https://wonderunit.com/storyboarder/photoshop-storyboarder.png" itemprop="contentUrl" data-size="600x338">
+                  <img src="https://wonderunit.com/storyboarder/photoshop-storyboarder.png" itemprop="thumbnail" alt="Image description" />
+              </a>
+              <figcaption itemprop="caption description">Image caption</figcaption>
+          </figure>
+
+          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="https://wonderunit.com/storyboarder/photoshop.png" itemprop="contentUrl" data-size="1920x1080">
+                  <img src="https://wonderunit.com/storyboarder/photoshop.png" itemprop="thumbnail" alt="Image description" />
+              </a>
+              <figcaption itemprop="caption description">Image caption</figcaption>
+          </figure>
+      </div>      
 
       <p>You don't need <span name="permission">anyone else's permission</span> or money to get started. And if you're smart and creative you don't need anyone else's permission or money to produce an entire visual story to completion.</p>
 
@@ -135,6 +158,63 @@
 
 
   </div>
+
+  <!-- PhotoSwipe template -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+      <div class="pswp__bg"></div>
+
+      <div class="pswp__scroll-wrap">
+
+          <div class="pswp__container">
+              <div class="pswp__item"></div>
+              <div class="pswp__item"></div>
+              <div class="pswp__item"></div>
+          </div>
+
+          <div class="pswp__ui pswp__ui--hidden">
+
+              <div class="pswp__top-bar">
+
+                  <div class="pswp__counter"></div>
+
+                  <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                  <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                  <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                  <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                  <div class="pswp__preloader">
+                      <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                          <div class="pswp__preloader__donut"></div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                  <div class="pswp__share-tooltip"></div> 
+              </div>
+
+              <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+              </button>
+
+              <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+              </button>
+
+              <div class="pswp__caption">
+                  <div class="pswp__caption__center"></div>
+              </div>
+
+          </div>
+
+      </div>
+
+  </div>
+
   <script src="script.js"></script>
 </body>
 

@@ -46,6 +46,11 @@ h3 {
     line-height: 1;
 }
 
+figure {
+    margin: 0;
+    padding: 0;
+}
+
 /* sidenotes */
 
 aside[name] {
@@ -79,4 +84,19 @@ aside[name] {
         counter-increment: sidenoteCount;
         content: " ";
     }
+}
+
+/* images */
+
+.gallery {
+    display: flex;
+}
+.gallery figure {
+    flex: 1;
+}
+.gallery figure img {
+    max-width: 100%;
+}
+.gallery > * + * {
+    margin-left: 1vw;
 }
