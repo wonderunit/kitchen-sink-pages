@@ -1,7 +1,7 @@
 @font-face {
     font-family: THICCCBoi;
     font-weight: 400;
-    src: url("font/THICCCBOI-Regular.woff2") format("opentype");
+    src: url("../font/THICCCBOI-Regular.woff2") format("opentype");
 }
 
 .container {
