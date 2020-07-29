@@ -6,7 +6,12 @@ function updateSidenotes () {
     let span = document.querySelector(`span[name="${name}"]`)
     let bodyRect = document.body.getBoundingClientRect()
     let elemRect = span.getBoundingClientRect()
-    aside.style.top = Math.ceil(elemRect.top - bodyRect.top) + 'px'
+
+    let styles =  window.getComputedStyle(span);
+    let spanLineHeight = parseInt(styles.getPropertyValue('line-height')) * 0.7 // optical adjustment
+
+    let parentOffset = span.offsetParent.offsetTop
+    aside.style.top = Math.ceil(elemRect.bottom - spanLineHeight - bodyRect.top - parentOffset) + 'px'
   }
 }
 
