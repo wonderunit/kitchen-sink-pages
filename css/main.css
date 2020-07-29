@@ -40,7 +40,7 @@ body {
 }
 
 .container {
-  font-family: "THICCCBoi";
+  font-family: "THICCCBoi", sans-serif;
   letter-spacing: 0.03em;
   -webkit-font-smoothing: subpixel-antialiased;
   line-height: 1.4;
