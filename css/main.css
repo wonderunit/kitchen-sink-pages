@@ -293,7 +293,7 @@ li {
   color: rgba(255, 255, 255, 0.8);
 }
 .menu > * + * {
-  margin-left: 1rem;
+  margin-left: 1em;
 }
 
 /* main */
