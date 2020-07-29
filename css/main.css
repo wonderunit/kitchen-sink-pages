@@ -277,6 +277,7 @@ li {
   line-height: 2rem;
   height: 2rem;
   fill: rgba(255, 255, 255, 0.6);
+  margin-top: 0.1rem; /* optical */
 }
 
 .menu {
