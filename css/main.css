@@ -179,7 +179,7 @@ aside[name] {
 @media (min-width: 90em) {
   .toc {
     position: absolute;
-    background-color: #eee;
+    background-color: rgba(0, 0, 0, 0.04);
     font-size: 0.75rem;
     width: 13rem;
     left: -13rem;
