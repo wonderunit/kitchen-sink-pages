@@ -187,17 +187,20 @@ aside[name] {
     display: block;
   }
 }
-ol {
-  padding: 0 0.25em 0.75em 0.75em;
+.toc ol {
+  padding: 0 0.25em 0.25em 0.75em;
 }
 .toc > ol {
   padding-bottom: 0;
 }
-ol ol {
+.toc ol ol {
   font-size: 90%;
 }
-li {
+.toc li {
   list-style-type: none;
+}
+.toc li:not(:last-child) {
+  margin-bottom: 0.25em;
 }
 .header-anchor {
   position: absolute;
