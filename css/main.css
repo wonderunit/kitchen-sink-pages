@@ -10,10 +10,36 @@
     src: url("../font/THICCCBOI-ExtraBold.woff2") format("opentype");
 }
 
+* {
+    box-sizing: border-box;
+}
+
+/*
+base font size is 16px
+varies from 100% to 175% when view is between 640px and 1600px wide
+*/
+html {
+  font-size: 1em;
+}
+@media (min-width: 40em) {
+  html {
+    font-size: 1em;
+    font-size: calc(((1.75 - 1) * ((100vw) - 40em) / (100 - 40)) + 1em);
+  }
+}
+@media (min-width: 100em) {
+  html {
+    font-size: 1.75em;
+  }
+}
+
+/* structure */
+
+body {
+    margin: 0;
+}
+
 .container {
-    max-width: min(70vw, 1000px);
-    margin: auto;
-    
     font-family: 'THICCCBoi';
     letter-spacing: 0.03em;
     -webkit-font-smoothing: subpixel-antialiased;
@@ -23,33 +49,49 @@
 }
 
 p {
-    font-size: min(max(2vw, 1em), 2em);
-    position: relative;
-    margin-block-start: 1.5em;
-    margin-block-end: 1.5em;
+    margin: 1em 0;
 }
 
 p:first-of-type {
-    font-size: min(max(3vw, 1.5em), 3em);
+    font-size: 1.25em;
     font-weight: 400;
 }
 
-h1 {
-    font-size: 6vw; 
+.masthead h1 {
+    font-size: 3rem;
     font-weight: 800;
-    line-height: 1;
+    line-height: 0.8;
+    margin: 0;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 800;
+    line-height: 1.125;
+    margin: 1em 0 0;
 }
 
 h2 {
-    font-size: 5vw; 
+    font-size: 1.5em;
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.25;
+    margin: 2em 0 0;
 }
 
 h3 {
-    font-size: 3vw; 
+    font-size: 1.25em;
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.25;
+    margin: 2.5em 0 0;
+}
+
+h2 + h3 {
+    margin: 0.125em 0 0;
+}
+
+a {
+    text-decoration: none;
+    color: darkslategrey;
 }
 
 figure {
@@ -57,33 +99,52 @@ figure {
     padding: 0;
 }
 
+
+/* utilities */
+
+.mobile-pad {
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.measure {
+    max-width: 41ch;
+}
+
+.relative {
+    position: relative;
+}
+
+
 /* sidenotes */
 
 aside[name] {
     display: none;
 }
-@media (min-width: 640px) {
+@media (min-width: 62.5em) {
     body {
         counter-reset: sidenoteCount 1;
     }
     span[name]::after {
         vertical-align: super;
         display: inline;
+        font-size: 0.5em;
         content: " " counter(sidenoteCount) "";
     }
     aside[name] {
         display: block;
         position: absolute;
-        width: 15vw;
-        right: -15vw;
+        width: 20vw;
+        max-width: 45ch;
+        right: -22vw;
         top: auto;
-        font-size: 1vw;
+        font-size: 0.75rem;
         line-height: 1.2;
     }
     aside[name]::before {
         vertical-align: super;
         display: inline;
-
+        font-size: 0.75em;
         content: " " counter(sidenoteCount) "";
     }
     aside[name]::after {
@@ -91,6 +152,36 @@ aside[name] {
         content: " ";
     }
 }
+
+
+/* table of contents */
+
+.toc {
+    display: none;
+}
+@media (min-width: 90em) {
+    .toc {
+        position: absolute;
+        background-color: #eee;
+        font-size: 0.75rem;
+        width: 13rem;
+        left: -13rem;
+        margin-left: -1rem;
+        display: block;
+    }
+}
+ol { padding: 0 0.25em 0.75em 0.75em; }
+.toc > ol { padding-bottom: 0; }
+ol ol { font-size: 90%; }
+li { list-style-type: none; }
+.header-anchor {
+    position: absolute;
+    margin-left: -0.75em;
+    font-size: 75%;
+    line-height: 1;
+    opacity: 0.3;
+}
+
 
 /* images */
 
@@ -104,5 +195,44 @@ aside[name] {
     max-width: 100%;
 }
 .gallery > * + * {
-    margin-left: 1vw;
+    margin-left: 1em;
 }
+
+
+/* cover */
+
+.cover {
+    display: flex;
+    flex-direction: column;
+}
+
+.cover > * {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cover > :first-child:not(.centered) {
+    margin-top: 0;
+}
+
+.cover > :last-child:not(.centered) {
+    margin-bottom: 0;
+}
+
+.cover > .centered {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+/* masthead */
+
+.masthead {
+    color: white;
+    background: linear-gradient(60deg, #6A4CE7 0%, #74EFFB 100%);
+}
+.masthead .measure .cover {
+    min-height: 30vh;
+    padding: 2em 0;
+}
+
