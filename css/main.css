@@ -1,17 +1,17 @@
 @font-face {
-    font-family: THICCCBoi;
-    font-weight: 400;
-    src: url("../font/THICCCBOI-Regular.woff2") format("opentype");
+  font-family: THICCCBoi;
+  font-weight: 400;
+  src: url("../font/THICCCBOI-Regular.woff2") format("opentype");
 }
 
 @font-face {
-    font-family: THICCCBoi;
-    font-weight: 800;
-    src: url("../font/THICCCBOI-ExtraBold.woff2") format("opentype");
+  font-family: THICCCBoi;
+  font-weight: 800;
+  src: url("../font/THICCCBOI-ExtraBold.woff2") format("opentype");
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /*
@@ -36,203 +36,204 @@ html {
 /* structure */
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 .container {
-    font-family: 'THICCCBoi';
-    letter-spacing: 0.03em;
-    -webkit-font-smoothing: subpixel-antialiased;
-    line-height: 1.4;
-    color: darkslategrey;
-    position: relative;
+  font-family: "THICCCBoi";
+  letter-spacing: 0.03em;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.4;
+  color: darkslategrey;
+  position: relative;
 }
 
 p {
-    margin: 1em 0;
+  margin: 1em 0;
 }
 
 p:first-of-type {
-    font-size: 1.25em;
-    font-weight: 400;
+  font-size: 1.25em;
+  font-weight: 400;
 }
 
 .masthead h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 0.9;
-    margin: 0;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 0.9;
+  margin: 0;
 }
 
 h1 {
-    font-size: 2em;
-    font-weight: 800;
-    line-height: 1.125;
-    margin: 1em 0 0;
+  font-size: 2em;
+  font-weight: 800;
+  line-height: 1.125;
+  margin: 1em 0 0;
 }
 
 h2 {
-    font-size: 1.5em;
-    font-weight: 800;
-    line-height: 1.25;
-    margin: 2em 0 0;
+  font-size: 1.5em;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 2em 0 0;
 }
 
 h3 {
-    font-size: 1.25em;
-    font-weight: 800;
-    line-height: 1.25;
-    margin: 2.5em 0 0;
+  font-size: 1.25em;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 2.5em 0 0;
 }
 
 h2 + h3 {
-    margin: 0.125em 0 0;
+  margin: 0.125em 0 0;
 }
 
 a {
-    text-decoration: none;
-    color: darkslategrey;
+  text-decoration: none;
+  color: darkslategrey;
 }
 
 figure {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
-
 
 /* utilities */
 
 .mobile-pad {
-    margin: 0 auto;
-    padding: 0 1rem;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .measure {
-    max-width: 41ch;
+  max-width: 41ch;
 }
 
 .relative {
-    position: relative;
+  position: relative;
 }
-
 
 /* sidenotes */
 
 aside[name] {
-    display: none;
+  display: none;
 }
 @media (min-width: 62.5em) {
-    body {
-        counter-reset: sidenoteCount 1;
-    }
-    span[name]::after {
-        vertical-align: super;
-        display: inline;
-        font-size: 0.5em;
-        content: " " counter(sidenoteCount) "";
-    }
-    aside[name] {
-        display: block;
-        position: absolute;
-        width: 20vw;
-        max-width: 45ch;
-        right: -22vw;
-        top: auto;
-        font-size: 0.75rem;
-        line-height: 1.3;
-    }
-    aside[name]::before {
-        vertical-align: super;
-        display: inline;
-        font-size: 0.75em;
-        content: " " counter(sidenoteCount) "";
-    }
-    aside[name]::after {
-        counter-increment: sidenoteCount;
-        content: " ";
-    }
+  body {
+    counter-reset: sidenoteCount 1;
+  }
+  span[name]::after {
+    vertical-align: super;
+    display: inline;
+    font-size: 0.5em;
+    content: " " counter(sidenoteCount) "";
+  }
+  aside[name] {
+    display: block;
+    position: absolute;
+    width: 20vw;
+    max-width: 45ch;
+    right: -22vw;
+    top: auto;
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+  aside[name]::before {
+    vertical-align: super;
+    display: inline;
+    font-size: 0.75em;
+    content: " " counter(sidenoteCount) "";
+  }
+  aside[name]::after {
+    counter-increment: sidenoteCount;
+    content: " ";
+  }
 }
-
 
 /* table of contents */
 
 .toc {
-    display: none;
+  display: none;
 }
 @media (min-width: 90em) {
-    .toc {
-        position: absolute;
-        background-color: #eee;
-        font-size: 0.75rem;
-        width: 13rem;
-        left: -13rem;
-        margin-left: -1rem;
-        display: block;
-    }
-}
-ol { padding: 0 0.25em 0.75em 0.75em; }
-.toc > ol { padding-bottom: 0; }
-ol ol { font-size: 90%; }
-li { list-style-type: none; }
-.header-anchor {
+  .toc {
     position: absolute;
-    margin-left: -0.75em;
-    font-size: 75%;
-    line-height: 1;
-    opacity: 0.3;
+    background-color: #eee;
+    font-size: 0.75rem;
+    width: 13rem;
+    left: -13rem;
+    margin-left: -1rem;
+    display: block;
+  }
 }
-
+ol {
+  padding: 0 0.25em 0.75em 0.75em;
+}
+.toc > ol {
+  padding-bottom: 0;
+}
+ol ol {
+  font-size: 90%;
+}
+li {
+  list-style-type: none;
+}
+.header-anchor {
+  position: absolute;
+  margin-left: -0.75em;
+  font-size: 75%;
+  line-height: 1;
+  opacity: 0.3;
+}
 
 /* images */
 
 .gallery {
-    display: flex;
+  display: flex;
 }
 .gallery figure {
-    flex: 1;
+  flex: 1;
 }
 .gallery figure img {
-    max-width: 100%;
+  max-width: 100%;
 }
 .gallery > * + * {
-    margin-left: 1em;
+  margin-left: 1em;
 }
-
 
 /* cover */
 
 .cover {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .cover > * {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .cover > :first-child:not(.centered) {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .cover > :last-child:not(.centered) {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .cover > .centered {
-    margin-top: auto;
-    margin-bottom: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
-
 
 /* masthead */
 
 .masthead {
-    color: white;
-    background: linear-gradient(60deg, #6A4CE7 0%, #74EFFB 100%);
+  color: white;
+  background: linear-gradient(60deg, #6a4ce7 0%, #74effb 100%);
 }
 .masthead .measure .cover {
-    min-height: 30vh;
-    padding: 2em 0;
+  min-height: 30vh;
+  padding: 2em 0;
 }
-

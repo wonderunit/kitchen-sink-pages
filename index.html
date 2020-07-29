@@ -1,321 +1,537 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- photoswipe -->
+    <link rel="stylesheet" href="vendor/photoswipe/photoswipe.css" />
+    <link
+      rel="stylesheet"
+      href="vendor/photoswipe/default-skin/default-skin.css"
+    />
+    <script src="vendor/photoswipe/photoswipe.min.js"></script>
+    <script src="vendor/photoswipe/photoswipe-ui-default.min.js"></script>
 
-  <!-- photoswipe -->
-  <link rel="stylesheet" href="vendor/photoswipe/photoswipe.css">
-  <link rel="stylesheet" href="vendor/photoswipe/default-skin/default-skin.css">
-  <script src="vendor/photoswipe/photoswipe.min.js"></script>
-  <script src="vendor/photoswipe/photoswipe-ui-default.min.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
 
-  <link rel="stylesheet" href="css/main.css">
+    <title></title>
+  </head>
 
-  <title></title>
-</head>
-
-<body>
-  <div class="container">
+  <body>
+    <div class="container">
       <div class="masthead">
         <div class="measure mobile-pad">
-            <div class="cover">
-                <div class="centered">
-                    <h1>A Future of Visual Storytelling</h1>
-                </div>
+          <div class="cover">
+            <div class="centered">
+              <h1>A Future of Visual Storytelling</h1>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="measure relative mobile-pad">
-
-      <nav class="toc table-of-contents">
-        <ol>
+      <div class="measure relative mobile-pad">
+        <nav class="toc table-of-contents">
+          <ol>
             <li>
-            <a href="#a-future-of-visual-storytelling">
+              <a href="#a-future-of-visual-storytelling">
                 A Future of Visual Storytelling</a
-            >
-            <ol>
+              >
+              <ol>
                 <li>
-                <a href="#some-side-notes"> Some Side Notes</a>
-                <ol>
+                  <a href="#some-side-notes"> Some Side Notes</a>
+                  <ol>
                     <li>
-                    <a href="#this-is-not-the-future%2C-it-is-a-future.">
+                      <a href="#this-is-not-the-future%2C-it-is-a-future.">
                         This is not the future, it is a future.</a
-                    >
+                      >
                     </li>
                     <li>
-                    <a href="#why-is-visual-storytelling-important%3F">
+                      <a href="#why-is-visual-storytelling-important%3F">
                         Why is visual storytelling important?</a
-                    >
+                      >
                     </li>
                     <li>
-                    <a href="#what-is-a-visual-story%3F"> What is a Visual Story?</a>
+                      <a href="#what-is-a-visual-story%3F">
+                        What is a Visual Story?</a
+                      >
                     </li>
-                </ol>
+                  </ol>
                 </li>
-            </ol>
+              </ol>
             </li>
             <li>
-            <a href="#story-development">Story Development</a>
-            <ol>
+              <a href="#story-development">Story Development</a>
+              <ol>
                 <li><a href="#writing-visually"> Writing Visually</a></li>
                 <li><a href="#importance-of-play"> Importance of Play</a></li>
                 <li><a href="#collaboration"> Collaboration</a></li>
-                <li><a href="#music-sooner-than-later"> Music Sooner Than Later</a></li>
+                <li>
+                  <a href="#music-sooner-than-later">
+                    Music Sooner Than Later</a
+                  >
+                </li>
                 <li><a href="#iteration"> Iteration</a></li>
-            </ol>
+              </ol>
             </li>
             <li>
-            <a href="#pre-production">Pre-Production</a>
-            <ol>
+              <a href="#pre-production">Pre-Production</a>
+              <ol>
                 <li><a href="#casting"> Casting</a></li>
                 <li>
-                <a href="#edited-animatic-readings"> Edited Animatic Readings</a>
+                  <a href="#edited-animatic-readings">
+                    Edited Animatic Readings</a
+                  >
                 </li>
                 <li><a href="#proto-production"> Proto-production</a></li>
-                <li><a href="#testing-and-iterating"> Testing and Iterating</a></li>
+                <li>
+                  <a href="#testing-and-iterating"> Testing and Iterating</a>
+                </li>
                 <li><a href="#pre-production-work"> Pre-production work</a></li>
-            </ol>
+              </ol>
             </li>
             <li>
-            <a href="#production">Production</a>
-            <ol>
+              <a href="#production">Production</a>
+              <ol>
                 <li>
-                <a href="#everyone-on-the-same-team"> Everyone on the same team</a>
+                  <a href="#everyone-on-the-same-team">
+                    Everyone on the same team</a
+                  >
                 </li>
                 <li><a href="#fluid-process"> Fluid process</a></li>
                 <li>
-                <a href="#technology-that-fades-into-the-background">
+                  <a href="#technology-that-fades-into-the-background">
                     Technology that fades into the background</a
-                >
+                  >
                 </li>
                 <li><a href="#virtual-production"> Virtual Production</a></li>
                 <li><a href="#robotics"> Robotics</a></li>
                 <li><a href="#on-set-editing"> On Set Editing</a></li>
-            </ol>
+              </ol>
             </li>
             <li>
-            <a href="#post-production">Post Production</a>
-            <ol>
+              <a href="#post-production">Post Production</a>
+              <ol>
                 <li><a href="#editing"> Editing</a></li>
                 <li><a href="#compositing"> Compositing</a></li>
                 <li><a href="#ai"> AI</a></li>
-            </ol>
+              </ol>
             </li>
             <li>
-            <a href="#distribution">Distribution</a>
-            <ol>
-                <li><a href="#where-are-the-people%3F"> Where are the people?</a></li>
-                <li><a href="#first-act-on-youtube"> First Act on Youtube</a></li>
-            </ol>
+              <a href="#distribution">Distribution</a>
+              <ol>
+                <li>
+                  <a href="#where-are-the-people%3F"> Where are the people?</a>
+                </li>
+                <li>
+                  <a href="#first-act-on-youtube"> First Act on Youtube</a>
+                </li>
+              </ol>
             </li>
-        </ol>
-      </nav>
+          </ol>
+        </nav>
 
-      <p>In the future, <span name="story-idea">anyone with a story idea</span> will be able to develop and visualize their story without technical limitations. They'll be able to direct a visual story by themselves. They'll be able to collaborate real time, building virtual scenes with people next to them or in different countries. They'll be able to iterate freely and easily to make their stories better.</p>
+        <p>
+          In the future,
+          <span name="story-idea">anyone with a story idea</span> will be able
+          to develop and visualize their story without technical limitations.
+          They'll be able to direct a visual story by themselves. They'll be
+          able to collaborate real time, building virtual scenes with people
+          next to them or in different countries. They'll be able to iterate
+          freely and easily to make their stories better.
+        </p>
 
-      <aside name="story-idea">
-        This is a sidenote. It explains some stuff. Anything can go here!
-      </aside>
+        <aside name="story-idea">
+          This is a sidenote. It explains some stuff. Anything can go here!
+        </aside>
 
-      <p>In the future, <span name="storyboards">anyone with a set of storyboards will be able to pick up a camera and start shooting</span>. They won't need to find or build real sets. They won't need to be in the same country as the performers. As they shoot each shot, the scene will be roughly edited together, in real time. The technology will become invisible. They will only need to worry about the story and the performance.</p>
+        <p>
+          In the future,
+          <span name="storyboards"
+            >anyone with a set of storyboards will be able to pick up a camera
+            and start shooting</span
+          >. They won't need to find or build real sets. They won't need to be
+          in the same country as the performers. As they shoot each shot, the
+          scene will be roughly edited together, in real time. The technology
+          will become invisible. They will only need to worry about the story
+          and the performance.
+        </p>
 
-      <aside name="storyboards">
-        This is a sidenote. It explains some stuff. Anything can go here!
-      </aside>
+        <aside name="storyboards">
+          This is a sidenote. It explains some stuff. Anything can go here!
+        </aside>
 
-      <p>In the future, any person with a story idea will be able to produce their stories into full reality. They won't be restricted by where they came from or who they are now, but rather, empowered because of where they came from and who they are now. They won't worry about money or possessing technology. They will have a place to create stories, find others to work with, and find audiences that connect with their work. They will be free to play and explore creative story ideas ultimately creating visual stories with their most valuable asset: their unique point of view.</p>
+        <p>
+          In the future, any person with a story idea will be able to produce
+          their stories into full reality. They won't be restricted by where
+          they came from or who they are now, but rather, empowered because of
+          where they came from and who they are now. They won't worry about
+          money or possessing technology. They will have a place to create
+          stories, find others to work with, and find audiences that connect
+          with their work. They will be free to play and explore creative story
+          ideas ultimately creating visual stories with their most valuable
+          asset: their unique point of view.
+        </p>
 
-      <div class="gallery" data-gallery itemscope itemtype="http://schema.org/ImageGallery">
-          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-              <a href="https://wonderunit.com/storyboarder/photoshop-storyboarder.png" itemprop="contentUrl" data-size="600x338">
-                  <img src="https://wonderunit.com/storyboarder/photoshop-storyboarder.png" itemprop="thumbnail" alt="Image description" />
-              </a>
-              <figcaption itemprop="caption description">Image caption</figcaption>
+        <div
+          class="gallery"
+          data-gallery
+          itemscope
+          itemtype="http://schema.org/ImageGallery"
+        >
+          <figure
+            itemprop="associatedMedia"
+            itemscope
+            itemtype="http://schema.org/ImageObject"
+          >
+            <a
+              href="https://wonderunit.com/storyboarder/photoshop-storyboarder.png"
+              itemprop="contentUrl"
+              data-size="600x338"
+            >
+              <img
+                src="https://wonderunit.com/storyboarder/photoshop-storyboarder.png"
+                itemprop="thumbnail"
+                alt="Image description"
+              />
+            </a>
+            <figcaption itemprop="caption description">
+              Image caption
+            </figcaption>
           </figure>
 
-          <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-              <a href="https://wonderunit.com/storyboarder/photoshop.png" itemprop="contentUrl" data-size="1920x1080">
-                  <img src="https://wonderunit.com/storyboarder/photoshop.png" itemprop="thumbnail" alt="Image description" />
-              </a>
-              <figcaption itemprop="caption description">Image caption</figcaption>
+          <figure
+            itemprop="associatedMedia"
+            itemscope
+            itemtype="http://schema.org/ImageObject"
+          >
+            <a
+              href="https://wonderunit.com/storyboarder/photoshop.png"
+              itemprop="contentUrl"
+              data-size="1920x1080"
+            >
+              <img
+                src="https://wonderunit.com/storyboarder/photoshop.png"
+                itemprop="thumbnail"
+                alt="Image description"
+              />
+            </a>
+            <figcaption itemprop="caption description">
+              Image caption
+            </figcaption>
           </figure>
-      </div>      
+        </div>
 
-      <p>You don't need <span name="permission">anyone else's permission</span> or money to get started. And if you're smart and creative you don't need anyone else's permission or money to produce an entire visual story to completion.</p>
+        <p>
+          You don't need
+          <span name="permission">anyone else's permission</span> or money to
+          get started. And if you're smart and creative you don't need anyone
+          else's permission or money to produce an entire visual story to
+          completion.
+        </p>
 
-      <aside name="permission">
-        This is another sidenote. It explains some stuff. Anything can go here!
-      </aside>
+        <aside name="permission">
+          This is another sidenote. It explains some stuff. Anything can go
+          here!
+        </aside>
 
-      <h2>1. Story Development</h2>
-      <p>The story is the most important part of visual storytelling. Does that statement sound as basic to you as it feels for me to write it? I hope so, because it should be plain as day.</p>
-      
-      <p>Making stories is hard. It has been the same level hard for the past 10,000 years. It will be the same level hard 10,000 years into the future. Technology may help with minor busywork annoyances, but the ability to contrive a story from nothing, infuse it with love and soul, solve it's infinite potential issues, and economically have an emotional impact on the viewer, all while seeming true and not contrived is a human miracle.</p>
-      
-      <p>Certainly, you've seen a big budget movie where it was technically astounding, but the story just sucked. What's the point of burning tons of production cash if the story sucks? Why not wait until you have fully developed the story?</p>
-      
-      <p>Probably because making stories is hard, and people are lazy.</p>
-      
-      <p>Therefore, the development of the story should be the greatest interest of visual storytellers all the way through production, and even after it.</p>
-      
-      <h3>Writing Visually</h3>
+        <h2>1. Story Development</h2>
+        <p>
+          The story is the most important part of visual storytelling. Does that
+          statement sound as basic to you as it feels for me to write it? I hope
+          so, because it should be plain as day.
+        </p>
 
-      <p>If we consume visual stories as images, why would a writer use words to describe images to synthesize a story? Why not develop a story visually? Instead of writing with words, write with images.</p>
-      
-      <p>It's easy to understand why we write with words. We use collections of words as symbols to create ideas. We can speak and listen to words to communicate ideas. We can write words down and read them. We can easily mass distribute written words. Words are cheap and effective. But they are also lossy symbols. They can never exactly convey the true meaning and feeling of the writer. They require the writer to translate the idea to words, and the reader to translate the words to the idea. Those are two translations where the original idea can be confused.</p>
-      
-      <p>In animation, specifically at a company like Pixar, writers do, in fact, write with images. "Story Artists" draw sequences of images to convey stories. Storyboards. This is an incredibly effective way of conveying a story because the hand drawn images are very close to the desired end product. Story artists can visably explain ideas understood immediately, which would be very difficult to write in words. Image sequences also demonstrate timing, pacing and tone, which is often near impossible to do in words.</p>
-      
-      The downside of drawing images to synthesize stories is that you need to be able to draw. However, I have been assured by many story artists that the important component of "Story Artist" is "Story". A great storyteller who has little drawing ability can put together stick figure drawings and is able to move a viewer emotionally. Conversely, a technically great illustrator with no clear idea of story often just makes hollow pretty pictures.
-      
-      Therefore, I believe great visual storytellers should be able to visually write without having the ability to draw. This is why we built Storyboarder. Initially, Storyboarder was built as a conventional storyboarding tool centered around illustration. Yet, computers have a great ability to render 3D scenes of environments, objects, and characters. So we built a tool that allows people to easily create scenes, pose characters and set up cameras so they can easily create images to tell stories.
-      
-      Furthermore, you can put on a VR headset to create and manipulate the whole scene just as you would in a real set. It essentially allows you to write and direct a story on the fly.
-      
-      Editing is very easy by going back into a scene and making changes. There isn't a sense of loss of throwing away a drawing – there is a sense of productivity and creativity by incrementally making things better.
-      
-      https://www.youtube.com/watch?v=31CdxnXAxiQ
-      
-      "Film stories are still really rooted in theater. You're frequently stuck doing things that you could do much more poetically. The story has to be written for it and I'm not quite sure who would do it because writers don't write visual things." – Stanley Kubrick
-      
-      With modern creative tools, it's now possible for writers to write visual things.
-      
-      So at this point, there is no reason why a visual storyteller should not be writing visually using a tool like Storyboarder or any other tool that works for them.
-      
-      Importance of Play
-      All of the most creative things I've ever done have been by accident. I was trying something I didn't need to do because: why not? I was playing. With curiosity and wonder you take little low cost risks to see what will happen. You learn new things. Sometimes those things are fantastic. Sometimes you are the first person to discover something and often the first to discover it from your particular point of view.
-      
-      Keep the costs low and the creative risks high.
-      
-      When creating or doing something takes a lot of effort or has a big expense, we don't take small risks. We make plans. We make plans to make plans. We often spend more time trying to mitigate the potential disasters of the plan than actually executing. This limits happy accidents. This limits risk taking. This limits play.
-      
-      It's weird and sad how people don't play as they get older. Maybe it's because our bodies work slower. Maybe it's because we think we've already discovered everything. Maybe it's because we don't even remember the joy of discovery.
-      
-      Is it possible to live in the world of your story? Is it possible to act the scene out?
-      
-      When Walt Disney was developing the story of Snow White, he would grab a random employee from the halls and bring them to the theater. He would act out the full story of Snow White from his head. Every time was a little different. He would try different ideas and often improvise new ideas on the spot. He did this hundreds of times, coming up with tons of new ideas.
-      
-      Why not play the story out hundreds of times? Improvise new ideas because: why not?
-      
-      When the cost to try new ideas is low, and the technology and tooling blend into the background, you can reach a flow state. You are hyper focused on creation. You can try new things and you get immediate feedback. New ideas give you new ideas. The instant you have to wait for something, this is broken.
-      
-      When creation feels like a game, the stakes are low. The barrier is low. The risks are easy to take. The art is better.
-      
-      Collaboration
-      Creativity is reactive. No one synthesizes a completely original idea without prompt. The conversations between people are people reacting to each others ideas. A question is asked for clarification. A person responds with a new thought they'd never thought of before. Another person brings a fact or prior art into the conversation sparking new ideas.
-      
-      Conversation and collaboration between people is an excellent tool for synthesizing new ideas.
-      
-      Yet, recent story development is thought of as a solitary act. The sole writer creates a unique, idiosyncratic story with their own take on dramatic conflict.
-      
-      A strong, unique point of view is absolutely necessary in a story. But why not benefit from multiple minds of similar style, interest and taste, each bringing their own strengths to the development of the story? With a strong central story director, the story can maintain the point of view, while incorporating the very best input from each writer.
-      
-      Additionally, collaborators don't need to be in the same place. In fact, it seems absurd to find creative, unique, talented people (which is near impossible), expecting they will all live in the same city. We have tools to coexist in virtual worlds together, walking around, playing, and creating together. You can do this within Storyboarder.
-      
-      community
-      
-      Music Sooner Than Later
-      Some of the most beautiful stories are told through music. Some of the greatest memories are tied to iconic original themes.
-      
-      So why not develop a story with music as a fundamental writing tool in the first place?
-      
-      Music and thoughtful sound design have a huge impact on how people feel when they watch a visual story. Music can set the mood and tone through the usage of well known cliches. In fact, in the absence of a meaningful story, music is the only hope to keep that visual turd from sinking into the dark abyss of irrelevance.
-      
-      Iteration
-      Iteration is easily the most important concept around the future of visual storytelling. I buried it down here because most people aren't even reading this far. But you are. Hey. Isn't this nice? Let's just take a moment to appreciate each other. Thanks for reading this. Anyways...
-      
-      No creation is great right out of the gate. It is made better over time. You listen to feedback. You change things. You try new things or gain a new perspective. You change things. Every iteration makes the work better.
-      
-      Iteration is how stories have historically developed. Myths would be created by someone and told to a group of people. People would retell the stories, keeping the best aspects of the story and losing the worst parts. Every time it was retold, it would be slightly different, each time, the story would be iterated on. The bible is a great example of a collection of prototypical myths iterating over several thousand years. All religious mythology and folklore is the result of this.
-      
-      In video game development, no game is just made and released to the public. When a game designer has a novel idea for a game, they are feeling pretty good that they are on to something. They make a prototype. They make something people can play and receive feedback on. This isn't done two or three times. This is done thousands of times. When the game is ready for release, perhaps a kernel of the vision is still intact, but the resulting game is very different from the way they originally intended. Even after release, changes are being made to improve the game.
-      
-      In feature-length narrative screenwriting, there is some sort of arbitrary "A draft and two revisions" rule of thumb. It seems to be centered around worker protectionism more than the work itself. But who really gives a shit about how screenwriting is typically done? Mythology has been iterating on iconic stories for 10,000 years. Screenwriting has only existed for roughly a hundred years and has produced only a handful of rare single hit successes.
-      
-      Yet in animation, particularly at Pixar, stories are heavily iterated on. Animation is much more expensive per minute to produce than live-action. Therefore, if you are going to spend a ton on production, you should invest in the story you are trying to produce. Stories at Pixar start with the kernel of an idea. The story is workshopped. Scenes are written by story artists that produce visual sequences to pitch story ideas to the team and the director. Because these hand drawn sequences can be edited into full versions of a movie, Pixar can show that version to test audiences and their trusted panel of storytellers for feedback. The feedback is taken and incorporated into revisions of sequences, or even wholly new ideas. This makes the stories better. Pixar stories are developed over the course of two years. Their story and commercial hit rate is nearly 100%.
-      
-      Even though Pixar literally invented computer graphics, their most valuable innovation has been how they iterate on story. I don't know why every storyteller or entertainment studio hasn't stolen their process. I think it is because Pixar originated as a group of creative software engineers. The value of technological iteration is burned into their culture. Whereas most other creative executives still cling to the golden touch fallacy.
-      
-      But iteration is hard particularly in visual storytelling because the costs are so high. Do you have 10 story artists at your disposal to visualize your story concepts? I don't. Furthermore, changes to stories have ripple effects. If you change a fundamental value of a character in the story, you have to make sure that change is reflected in the rest of the story. This problem increases exponentially based on the length of the story. Even worse, artists are resistant to losing their work. Imagine if you just drew a beautiful sequence of 300 images. But, a great change was made to a character that will improve the story. This will nullify your sequence and it must be redone.
-      
-      This is why we built Storyboarder. We wanted scenes and shots to be easily changed so that contrary to feeling loss while iterating story, you would feel a sense of improvement. A creative tool like Storyboarder will reduce the change costs so that iteration is pain free.
-      
-      Also, because the storyboard sequences generated with Storyboarder are very similar to the desired output (a visual story), full sequences of the entire visual story can be presented to test audiences for feedback. This can be done hundreds or thousands of times.
-      
-      2. Pre-Production
-      Pre-production is the stage where the story has been developed enough that it makes sense to move forward and prepare for production. However, this doesn't mean the story is done. Ideally, through the process working with the cast, workshopping the story, and further testing, the story will further develop prior to production. Through the step of proto-production, the story will be iterated on at least one more time.
-      
-      Casting
-      There are a lot of great actors few people have seen yet. If your story is great, you do not need a well-known actor. If the cost of your production is low, you do not need a well-known actor to sell your story to viewers.
-      
-      Culturally, you want your actors on your team. You want them fully invested in the story. You want them to make your story ring true. You want them to be able to iterate on the story with you. You want them to make the story better.
-      
-      This will take more work than usually required of a typical narrative story. It's important that they are willing to do this.
+        <p>
+          Making stories is hard. It has been the same level hard for the past
+          10,000 years. It will be the same level hard 10,000 years into the
+          future. Technology may help with minor busywork annoyances, but the
+          ability to contrive a story from nothing, infuse it with love and
+          soul, solve it's infinite potential issues, and economically have an
+          emotional impact on the viewer, all while seeming true and not
+          contrived is a human miracle.
+        </p>
 
+        <p>
+          Certainly, you've seen a big budget movie where it was technically
+          astounding, but the story just sucked. What's the point of burning
+          tons of production cash if the story sucks? Why not wait until you
+          have fully developed the story?
+        </p>
+
+        <p>Probably because making stories is hard, and people are lazy.</p>
+
+        <p>
+          Therefore, the development of the story should be the greatest
+          interest of visual storytellers all the way through production, and
+          even after it.
+        </p>
+
+        <h3>Writing Visually</h3>
+
+        <p>
+          If we consume visual stories as images, why would a writer use words
+          to describe images to synthesize a story? Why not develop a story
+          visually? Instead of writing with words, write with images.
+        </p>
+
+        <p>
+          It's easy to understand why we write with words. We use collections of
+          words as symbols to create ideas. We can speak and listen to words to
+          communicate ideas. We can write words down and read them. We can
+          easily mass distribute written words. Words are cheap and effective.
+          But they are also lossy symbols. They can never exactly convey the
+          true meaning and feeling of the writer. They require the writer to
+          translate the idea to words, and the reader to translate the words to
+          the idea. Those are two translations where the original idea can be
+          confused.
+        </p>
+
+        <p>
+          In animation, specifically at a company like Pixar, writers do, in
+          fact, write with images. "Story Artists" draw sequences of images to
+          convey stories. Storyboards. This is an incredibly effective way of
+          conveying a story because the hand drawn images are very close to the
+          desired end product. Story artists can visably explain ideas
+          understood immediately, which would be very difficult to write in
+          words. Image sequences also demonstrate timing, pacing and tone, which
+          is often near impossible to do in words.
+        </p>
+
+        The downside of drawing images to synthesize stories is that you need to
+        be able to draw. However, I have been assured by many story artists that
+        the important component of "Story Artist" is "Story". A great
+        storyteller who has little drawing ability can put together stick figure
+        drawings and is able to move a viewer emotionally. Conversely, a
+        technically great illustrator with no clear idea of story often just
+        makes hollow pretty pictures. Therefore, I believe great visual
+        storytellers should be able to visually write without having the ability
+        to draw. This is why we built Storyboarder. Initially, Storyboarder was
+        built as a conventional storyboarding tool centered around illustration.
+        Yet, computers have a great ability to render 3D scenes of environments,
+        objects, and characters. So we built a tool that allows people to easily
+        create scenes, pose characters and set up cameras so they can easily
+        create images to tell stories. Furthermore, you can put on a VR headset
+        to create and manipulate the whole scene just as you would in a real
+        set. It essentially allows you to write and direct a story on the fly.
+        Editing is very easy by going back into a scene and making changes.
+        There isn't a sense of loss of throwing away a drawing – there is a
+        sense of productivity and creativity by incrementally making things
+        better. https://www.youtube.com/watch?v=31CdxnXAxiQ "Film stories are
+        still really rooted in theater. You're frequently stuck doing things
+        that you could do much more poetically. The story has to be written for
+        it and I'm not quite sure who would do it because writers don't write
+        visual things." – Stanley Kubrick With modern creative tools, it's now
+        possible for writers to write visual things. So at this point, there is
+        no reason why a visual storyteller should not be writing visually using
+        a tool like Storyboarder or any other tool that works for them.
+        Importance of Play All of the most creative things I've ever done have
+        been by accident. I was trying something I didn't need to do because:
+        why not? I was playing. With curiosity and wonder you take little low
+        cost risks to see what will happen. You learn new things. Sometimes
+        those things are fantastic. Sometimes you are the first person to
+        discover something and often the first to discover it from your
+        particular point of view. Keep the costs low and the creative risks
+        high. When creating or doing something takes a lot of effort or has a
+        big expense, we don't take small risks. We make plans. We make plans to
+        make plans. We often spend more time trying to mitigate the potential
+        disasters of the plan than actually executing. This limits happy
+        accidents. This limits risk taking. This limits play. It's weird and sad
+        how people don't play as they get older. Maybe it's because our bodies
+        work slower. Maybe it's because we think we've already discovered
+        everything. Maybe it's because we don't even remember the joy of
+        discovery. Is it possible to live in the world of your story? Is it
+        possible to act the scene out? When Walt Disney was developing the story
+        of Snow White, he would grab a random employee from the halls and bring
+        them to the theater. He would act out the full story of Snow White from
+        his head. Every time was a little different. He would try different
+        ideas and often improvise new ideas on the spot. He did this hundreds of
+        times, coming up with tons of new ideas. Why not play the story out
+        hundreds of times? Improvise new ideas because: why not? When the cost
+        to try new ideas is low, and the technology and tooling blend into the
+        background, you can reach a flow state. You are hyper focused on
+        creation. You can try new things and you get immediate feedback. New
+        ideas give you new ideas. The instant you have to wait for something,
+        this is broken. When creation feels like a game, the stakes are low. The
+        barrier is low. The risks are easy to take. The art is better.
+        Collaboration Creativity is reactive. No one synthesizes a completely
+        original idea without prompt. The conversations between people are
+        people reacting to each others ideas. A question is asked for
+        clarification. A person responds with a new thought they'd never thought
+        of before. Another person brings a fact or prior art into the
+        conversation sparking new ideas. Conversation and collaboration between
+        people is an excellent tool for synthesizing new ideas. Yet, recent
+        story development is thought of as a solitary act. The sole writer
+        creates a unique, idiosyncratic story with their own take on dramatic
+        conflict. A strong, unique point of view is absolutely necessary in a
+        story. But why not benefit from multiple minds of similar style,
+        interest and taste, each bringing their own strengths to the development
+        of the story? With a strong central story director, the story can
+        maintain the point of view, while incorporating the very best input from
+        each writer. Additionally, collaborators don't need to be in the same
+        place. In fact, it seems absurd to find creative, unique, talented
+        people (which is near impossible), expecting they will all live in the
+        same city. We have tools to coexist in virtual worlds together, walking
+        around, playing, and creating together. You can do this within
+        Storyboarder. community Music Sooner Than Later Some of the most
+        beautiful stories are told through music. Some of the greatest memories
+        are tied to iconic original themes. So why not develop a story with
+        music as a fundamental writing tool in the first place? Music and
+        thoughtful sound design have a huge impact on how people feel when they
+        watch a visual story. Music can set the mood and tone through the usage
+        of well known cliches. In fact, in the absence of a meaningful story,
+        music is the only hope to keep that visual turd from sinking into the
+        dark abyss of irrelevance. Iteration Iteration is easily the most
+        important concept around the future of visual storytelling. I buried it
+        down here because most people aren't even reading this far. But you are.
+        Hey. Isn't this nice? Let's just take a moment to appreciate each other.
+        Thanks for reading this. Anyways... No creation is great right out of
+        the gate. It is made better over time. You listen to feedback. You
+        change things. You try new things or gain a new perspective. You change
+        things. Every iteration makes the work better. Iteration is how stories
+        have historically developed. Myths would be created by someone and told
+        to a group of people. People would retell the stories, keeping the best
+        aspects of the story and losing the worst parts. Every time it was
+        retold, it would be slightly different, each time, the story would be
+        iterated on. The bible is a great example of a collection of
+        prototypical myths iterating over several thousand years. All religious
+        mythology and folklore is the result of this. In video game development,
+        no game is just made and released to the public. When a game designer
+        has a novel idea for a game, they are feeling pretty good that they are
+        on to something. They make a prototype. They make something people can
+        play and receive feedback on. This isn't done two or three times. This
+        is done thousands of times. When the game is ready for release, perhaps
+        a kernel of the vision is still intact, but the resulting game is very
+        different from the way they originally intended. Even after release,
+        changes are being made to improve the game. In feature-length narrative
+        screenwriting, there is some sort of arbitrary "A draft and two
+        revisions" rule of thumb. It seems to be centered around worker
+        protectionism more than the work itself. But who really gives a shit
+        about how screenwriting is typically done? Mythology has been iterating
+        on iconic stories for 10,000 years. Screenwriting has only existed for
+        roughly a hundred years and has produced only a handful of rare single
+        hit successes. Yet in animation, particularly at Pixar, stories are
+        heavily iterated on. Animation is much more expensive per minute to
+        produce than live-action. Therefore, if you are going to spend a ton on
+        production, you should invest in the story you are trying to produce.
+        Stories at Pixar start with the kernel of an idea. The story is
+        workshopped. Scenes are written by story artists that produce visual
+        sequences to pitch story ideas to the team and the director. Because
+        these hand drawn sequences can be edited into full versions of a movie,
+        Pixar can show that version to test audiences and their trusted panel of
+        storytellers for feedback. The feedback is taken and incorporated into
+        revisions of sequences, or even wholly new ideas. This makes the stories
+        better. Pixar stories are developed over the course of two years. Their
+        story and commercial hit rate is nearly 100%. Even though Pixar
+        literally invented computer graphics, their most valuable innovation has
+        been how they iterate on story. I don't know why every storyteller or
+        entertainment studio hasn't stolen their process. I think it is because
+        Pixar originated as a group of creative software engineers. The value of
+        technological iteration is burned into their culture. Whereas most other
+        creative executives still cling to the golden touch fallacy. But
+        iteration is hard particularly in visual storytelling because the costs
+        are so high. Do you have 10 story artists at your disposal to visualize
+        your story concepts? I don't. Furthermore, changes to stories have
+        ripple effects. If you change a fundamental value of a character in the
+        story, you have to make sure that change is reflected in the rest of the
+        story. This problem increases exponentially based on the length of the
+        story. Even worse, artists are resistant to losing their work. Imagine
+        if you just drew a beautiful sequence of 300 images. But, a great change
+        was made to a character that will improve the story. This will nullify
+        your sequence and it must be redone. This is why we built Storyboarder.
+        We wanted scenes and shots to be easily changed so that contrary to
+        feeling loss while iterating story, you would feel a sense of
+        improvement. A creative tool like Storyboarder will reduce the change
+        costs so that iteration is pain free. Also, because the storyboard
+        sequences generated with Storyboarder are very similar to the desired
+        output (a visual story), full sequences of the entire visual story can
+        be presented to test audiences for feedback. This can be done hundreds
+        or thousands of times. 2. Pre-Production Pre-production is the stage
+        where the story has been developed enough that it makes sense to move
+        forward and prepare for production. However, this doesn't mean the story
+        is done. Ideally, through the process working with the cast,
+        workshopping the story, and further testing, the story will further
+        develop prior to production. Through the step of proto-production, the
+        story will be iterated on at least one more time. Casting There are a
+        lot of great actors few people have seen yet. If your story is great,
+        you do not need a well-known actor. If the cost of your production is
+        low, you do not need a well-known actor to sell your story to viewers.
+        Culturally, you want your actors on your team. You want them fully
+        invested in the story. You want them to make your story ring true. You
+        want them to be able to iterate on the story with you. You want them to
+        make the story better. This will take more work than usually required of
+        a typical narrative story. It's important that they are willing to do
+        this.
+      </div>
     </div>
 
-  </div>
-
-  <!-- PhotoSwipe template -->
-  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
+    <!-- PhotoSwipe template -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="pswp__bg"></div>
 
       <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+          <div class="pswp__item"></div>
+        </div>
 
-          <div class="pswp__container">
-              <div class="pswp__item"></div>
-              <div class="pswp__item"></div>
-              <div class="pswp__item"></div>
+        <div class="pswp__ui pswp__ui--hidden">
+          <div class="pswp__top-bar">
+            <div class="pswp__counter"></div>
+
+            <button
+              class="pswp__button pswp__button--close"
+              title="Close (Esc)"
+            ></button>
+
+            <button
+              class="pswp__button pswp__button--share"
+              title="Share"
+            ></button>
+
+            <button
+              class="pswp__button pswp__button--fs"
+              title="Toggle fullscreen"
+            ></button>
+
+            <button
+              class="pswp__button pswp__button--zoom"
+              title="Zoom in/out"
+            ></button>
+
+            <div class="pswp__preloader">
+              <div class="pswp__preloader__icn">
+                <div class="pswp__preloader__cut">
+                  <div class="pswp__preloader__donut"></div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="pswp__ui pswp__ui--hidden">
-
-              <div class="pswp__top-bar">
-
-                  <div class="pswp__counter"></div>
-
-                  <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                  <button class="pswp__button pswp__button--share" title="Share"></button>
-
-                  <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                  <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                  <div class="pswp__preloader">
-                      <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                          <div class="pswp__preloader__donut"></div>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                  <div class="pswp__share-tooltip"></div> 
-              </div>
-
-              <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-              </button>
-
-              <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-              </button>
-
-              <div class="pswp__caption">
-                  <div class="pswp__caption__center"></div>
-              </div>
-
+          <div
+            class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"
+          >
+            <div class="pswp__share-tooltip"></div>
           </div>
 
+          <button
+            class="pswp__button pswp__button--arrow--left"
+            title="Previous (arrow left)"
+          ></button>
+
+          <button
+            class="pswp__button pswp__button--arrow--right"
+            title="Next (arrow right)"
+          ></button>
+
+          <div class="pswp__caption">
+            <div class="pswp__caption__center"></div>
+          </div>
+        </div>
       </div>
+    </div>
 
-  </div>
-
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
