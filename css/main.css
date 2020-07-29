@@ -308,8 +308,8 @@ main {
 /* footer */
 
 footer {
-  background-color: #494C83;
-  color: rgba(255, 255, 255, 0.5);
+  background-color: hsl(237, 28%, 40%);
+  color: hsl(237, 28%, 70%);
   font-size: 0.75rem;
   padding: 1rem 0;
 }
