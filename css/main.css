@@ -309,7 +309,8 @@ main {
 
 footer {
   background-color: hsl(237, 28%, 40%);
-  color: hsl(237, 28%, 70%);
+  color: hsl(237, 28%, 75%);
+
   font-size: 0.75rem;
   padding: 1rem 0;
 }
