@@ -4,6 +4,12 @@
     src: url("../font/THICCCBOI-Regular.woff2") format("opentype");
 }
 
+@font-face {
+    font-family: THICCCBoi;
+    font-weight: 800;
+    src: url("../font/THICCCBOI-ExtraBold.woff2") format("opentype");
+}
+
 .container {
     max-width: min(70vw, 1000px);
     margin: auto;
