@@ -45,6 +45,10 @@ body {
   -webkit-font-smoothing: subpixel-antialiased;
   line-height: 1.4;
   color: darkslategrey;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
 }
 
 p {
@@ -54,13 +58,6 @@ p {
 p:first-of-type {
   font-size: 1.25em;
   font-weight: 400;
-}
-
-.masthead h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  line-height: 0.9;
-  margin: 0;
 }
 
 h1 {
@@ -111,6 +108,30 @@ figure {
 
 .relative {
   position: relative;
+}
+
+.flex {
+  display: flex
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.measure-wide {
+  max-width: 66ch;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.w-full	{
+  width: 100%;
 }
 
 /* sidenotes */
@@ -234,5 +255,61 @@ li {
 }
 .masthead .measure .cover {
   min-height: 30vh;
-  padding: 2em 0;
+  padding: 1.5rem 0 2rem 0;
+}
+.masthead h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 0.9;
+  margin: 0;
+}
+
+/* primary nav */
+
+.primary-nav {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.logo {
+  display: block;
+  width: 6rem;
+  line-height: 2rem;
+  height: 2rem;
+  fill: rgba(255, 255, 255, 0.6);
+}
+
+.menu {
+  font-size: 70%;
+  line-height: 2rem;
+  height: 2rem;
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+}
+.menu li a {
+  padding: 0.25rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+.menu > * + * {
+  margin-left: 1rem;
+}
+
+/* main */
+
+main {
+  margin-bottom: 2rem;
+}
+
+/* footer */
+
+footer {
+  background-color: #494C83;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+  padding: 1rem 0;
+}
+
+footer small {
+  font-size: 0.75em;
 }
