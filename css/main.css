@@ -45,10 +45,61 @@ body {
   -webkit-font-smoothing: subpixel-antialiased;
   line-height: 1.4;
   color: darkslategrey;
+}
 
+.container {
   display: grid;
-  grid-template-rows: auto 1fr auto;
   height: 100vh;
+}
+header {
+  grid-column: 1 / 4;
+}
+.left-sidebar {
+  grid-column: 1 / 2;
+}
+main {
+  grid-column: 2 / 3;
+}
+.right-sidebar {
+  grid-column: 3 / 4;
+}
+footer {
+  grid-column: 1 / 4;
+}
+
+:root {
+  --body-measure: 100%;
+}
+.container {
+  grid-template: auto 1fr auto / auto var(--body-measure) auto;
+  /* margin: 0 auto; */
+}
+.primary-nav > div {
+  width: 40%;
+}
+/* TODO utility classes */
+.container .left-sidebar,
+.container .right-sidebar {
+  display: none;
+}
+@media (min-width: 40em) {
+  :root {
+    --body-measure: 40%;
+  }
+  .container {
+    --side-measure: 30%;
+    grid-template: auto 1fr auto / var(--side-measure) var(--body-measure) auto;
+    /* margin: 0; */
+  }
+  .primary-nav > div {
+    width: var(--side-measure);
+  }
+}
+@media (min-width: 62.5em) {
+  .container .left-sidebar,
+  .container .right-sidebar {
+    display: flex;
+  }
 }
 
 p {
@@ -102,10 +153,6 @@ figure {
   padding: 0 1rem;
 }
 
-.measure {
-  max-width: 41ch;
-}
-
 .relative {
   position: relative;
 }
@@ -120,10 +167,6 @@ figure {
 
 .justify-between {
   justify-content: space-between;
-}
-
-.measure-wide {
-  max-width: 66ch;
 }
 
 .text-center {
@@ -153,7 +196,8 @@ aside[name] {
     display: block;
     position: absolute;
     width: 20vw;
-    max-width: 45ch;
+    /* TODO */
+    /* max-width: 45ch; */
     right: -22vw;
     top: auto;
     font-size: 0.75rem;
@@ -174,18 +218,12 @@ aside[name] {
 /* table of contents */
 
 .toc {
-  display: none;
-}
-@media (min-width: 90em) {
-  .toc {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.04);
-    font-size: 0.75rem;
-    width: 13rem;
-    left: -13rem;
-    margin-left: -1rem;
-    display: block;
-  }
+  background-color: rgba(0, 0, 0, 0.04);
+  font-size: 0.75rem;
+  padding: 0 0.25rem;
+  width: 13rem;
+  margin-top: 1.5rem;
+  margin-right: 2rem;
 }
 .toc ol {
   padding: 0 0.25em 0.25em 0.75em;
@@ -256,7 +294,7 @@ aside[name] {
   color: white;
   background: linear-gradient(60deg, #6a4ce7 0%, #74effb 100%);
 }
-.masthead .measure .cover {
+.masthead .cover {
   min-height: 30vh;
   padding: 1.5rem 0 2rem 0;
 }
@@ -288,8 +326,8 @@ aside[name] {
   line-height: 2rem;
   height: 2rem;
   list-style-type: none;
-  display: flex;
   margin: 0;
+  padding: 0;
 }
 .menu li a {
   padding: 0.25rem;
@@ -297,12 +335,6 @@ aside[name] {
 }
 .menu > * + * {
   margin-left: 1em;
-}
-
-/* main */
-
-main {
-  margin-bottom: 2rem;
 }
 
 /* footer */
@@ -313,6 +345,8 @@ footer {
 
   font-size: 0.75rem;
   padding: 1rem 0;
+
+  margin-top: 1rem;
 }
 
 footer small {
