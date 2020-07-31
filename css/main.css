@@ -14,24 +14,22 @@
   box-sizing: border-box;
 }
 
-/*
-base font size is 16px
-varies from 100% to 175% when view is between 640px and 1600px wide
-*/
 html {
   font-size: 1em;
 }
-@media (min-width: 40em) {
+
+@media (min-width: 768px) {
   html {
-    font-size: 1em;
-    font-size: calc(((1.75 - 1) * ((100vw) - 40em) / (100 - 40)) + 1em);
+    font-size: calc(((2.8438 - 1) * ((100vw) - 48em) / (187.5 - 48)) + 1em);
   }
 }
-@media (min-width: 100em) {
+
+@media (min-width: 3000px) {
   html {
-    font-size: 1.75em;
+    font-size: 2.8438em;
   }
 }
+
 
 /* structure */
 
@@ -82,19 +80,28 @@ footer {
 .container .right-sidebar {
   display: none;
 }
-@media (min-width: 40em) {
+@media (min-width: 640px) {
   :root {
-    --body-measure: 67%;
+    --body-measure: 60%;
   }
   .container {
     /* column-gap: 1rem; */
     /* margin: 0; */
   }
 }
-@media (min-width: 62.5em) {
+@media (min-width: 1000px) {
   .container .left-sidebar,
   .container .right-sidebar {
     display: flex;
+  }
+}
+@media (min-width: 3000px) {
+  :root {
+    --body-measure: calc(3000px * 0.6);
+  }
+  .container {
+    grid-template: auto 1fr auto / minmax(0, 1fr) var(--body-measure) minmax(0, 1fr);
+    margin: 0 auto;
   }
 }
 
@@ -186,7 +193,8 @@ figure {
 aside[name] {
   display: none;
 }
-@media (min-width: 62.5em) {
+@media (min-width: 640px) {
+/* @media (min-width: 768px) { */
   body {
     counter-reset: sidenoteCount 1;
   }
@@ -224,7 +232,7 @@ aside[name] {
   background-color: rgba(0, 0, 0, 0.04);
   font-size: 0.75rem;
   padding: 1em;
-  margin-top: -2rem;
+  margin-top: -1.5rem;
   font-size: 60%;
 }
 .toc ol {
@@ -239,7 +247,7 @@ aside[name] {
   margin-bottom: 0;
 }
 .toc ol > li {
-  font-weight: bold;
+  font-weight: 800;
 }
 .toc ol > li li {
   font-weight: normal;
@@ -299,15 +307,36 @@ aside[name] {
   background: linear-gradient(60deg, #6a4ce7 0%, #74effb 100%);
 }
 .masthead .cover {
-  min-height: 30vh;
+  height: 30vh;
+  max-height: 14em;
   padding: 1.5rem 0 2rem 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 .masthead h1 {
   font-size: 3rem;
   font-weight: 800;
   line-height: 0.9;
   margin: 0;
+}
+@media (min-width: 640px) {
+  .masthead .cover {
+    min-height: 14em;
+  }
+}
+@media (min-width: 3000px) {
+  .masthead .cover {
+    min-height: 22em;
+  }
+}
+@media (min-width: 2000px) {
+  .masthead h1 {
+    font-size: 4em;
+  }
+}
+@media (min-width: 3000px) {
+  .masthead h1 {
+    font-size: 5em;
+  }
 }
 
 /* primary nav */
