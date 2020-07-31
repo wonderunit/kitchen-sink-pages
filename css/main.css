@@ -85,10 +85,6 @@ footer {
   :root {
     --body-measure: 67%;
   }
-  .container {
-    /* column-gap: 1rem; */
-    /* margin: 0; */
-  }
 }
 @media (min-width: 768px) {
   :root {
