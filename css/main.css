@@ -14,6 +14,8 @@
   box-sizing: border-box;
 }
 
+/* fluid type */
+
 html {
   font-size: 1em;
 }
@@ -29,7 +31,6 @@ html {
     font-size: 2.8438em;
   }
 }
-
 
 /* structure */
 
@@ -74,7 +75,6 @@ footer {
 }
 .container {
   grid-template: auto 1fr auto / minmax(0, 1fr) var(--body-measure) minmax(0, 1fr);
-  /* margin: 0 auto; */
 }
 
 .left-sidebar,
