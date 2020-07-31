@@ -1,3 +1,12 @@
+function initializeSidenotes() {
+  let sidebar = document.querySelector('.right-sidebar');
+  let asides = [...document.querySelectorAll("aside[name]")];
+  for (let aside of asides) {
+    aside.parentNode.removeChild(aside)
+    sidebar.appendChild(aside)
+  }
+
+}
 function updateSidenotes() {
   let asides = [...document.querySelectorAll("aside[name]")];
 
@@ -10,10 +19,12 @@ function updateSidenotes() {
     let styles = window.getComputedStyle(span);
     let spanLineHeight = parseInt(styles.getPropertyValue("line-height")) * 0.7; // optical adjustment
 
-    let parentOffset = span.offsetParent.offsetTop;
+    let offset = 0
+    // offset += span.offsetParent.offsetTop;
+
     aside.style.top =
       Math.ceil(
-        elemRect.bottom - spanLineHeight - bodyRect.top - parentOffset
+        elemRect.bottom - spanLineHeight - bodyRect.top - offset
       ) + "px";
   }
 }
@@ -106,6 +117,7 @@ var parseThumbnailElements = function (el) {
   }
 })();
 
+initializeSidenotes()
 window.addEventListener("resize", resize);
 resize();
 setTimeout(resize, 200);
