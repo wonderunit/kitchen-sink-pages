@@ -70,12 +70,12 @@ footer {
 :root {
   --body-measure: 100%;
 }
-.container {
-  grid-template: auto 1fr auto / auto var(--body-measure) auto;
-  /* margin: 0 auto; */
+.body-measure {
+  max-width: var(--body-measure);
 }
-.primary-nav > div {
-  width: 40%;
+.container {
+  grid-template: auto 1fr auto / minmax(0, 1fr) var(--body-measure) minmax(0, 1fr);
+  /* margin: 0 auto; */
 }
 /* TODO utility classes */
 .container .left-sidebar,
@@ -84,15 +84,11 @@ footer {
 }
 @media (min-width: 40em) {
   :root {
-    --body-measure: 40%;
+    --body-measure: 67%;
   }
   .container {
-    --side-measure: 30%;
-    grid-template: auto 1fr auto / var(--side-measure) var(--body-measure) auto;
+    /* column-gap: 1rem; */
     /* margin: 0; */
-  }
-  .primary-nav > div {
-    width: var(--side-measure);
   }
 }
 @media (min-width: 62.5em) {
@@ -169,6 +165,14 @@ figure {
   justify-content: space-between;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
 .text-center {
   text-align: center;
 }
@@ -195,19 +199,18 @@ aside[name] {
   aside[name] {
     display: block;
     position: absolute;
-    width: 20vw;
-    /* TODO */
-    /* max-width: 45ch; */
-    right: -22vw;
+    width: 15vw;
+    left: 100%;
     top: auto;
     font-size: 0.75rem;
     line-height: 1.3;
   }
   aside[name]::before {
-    vertical-align: super;
-    display: inline;
-    font-size: 0.75em;
-    content: " " counter(sidenoteCount) "";
+    position: absolute;
+    left: -1.25em;
+    font-size: 0.8em;
+    opacity: 0.8;
+    content: " " counter(sidenoteCount) ".";
   }
   aside[name]::after {
     counter-increment: sidenoteCount;
@@ -220,25 +223,26 @@ aside[name] {
 .toc {
   background-color: rgba(0, 0, 0, 0.04);
   font-size: 0.75rem;
-  padding: 0 0.25rem;
-  width: 13rem;
-  margin-top: 1.5rem;
-  margin-right: 2rem;
+  padding: 1em;
+  margin-top: -2rem;
+  font-size: 60%;
 }
 .toc ol {
-  padding: 0 0.25em 0.25em 0.75em;
-}
-.toc > ol {
-  padding-bottom: 0;
-}
-.toc ol ol {
-  font-size: 90%;
-}
-.toc li {
+  padding: 0;
+  margin: 0;
   list-style-type: none;
 }
-.toc li:not(:last-child) {
-  margin-bottom: 0.25em;
+.toc ol {
+  margin-bottom: 1em;
+}
+.toc ol > ol {
+  margin-bottom: 0;
+}
+.toc ol > li {
+  font-weight: bold;
+}
+.toc ol > li li {
+  font-weight: normal;
 }
 .header-anchor {
   position: absolute;
@@ -297,6 +301,7 @@ aside[name] {
 .masthead .cover {
   min-height: 30vh;
   padding: 1.5rem 0 2rem 0;
+  margin-bottom: 2rem;
 }
 .masthead h1 {
   font-size: 3rem;
