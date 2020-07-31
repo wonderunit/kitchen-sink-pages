@@ -46,8 +46,16 @@ body {
   color: darkslategrey;
 }
 
+:root {
+  --body-measure: 100%;
+  --sidebar-max: 16rem;
+}
+.body-measure {
+  max-width: var(--body-measure);
+}
 .container {
   display: grid;
+  grid-template: auto 1fr auto / minmax(0, 1fr) var(--body-measure) minmax(0, 1fr);
   height: 100vh;
 }
 header {
@@ -65,18 +73,6 @@ main {
 footer {
   grid-column: 1 / 4;
 }
-
-:root {
-  --body-measure: 100%;
-  --sidebar-max: 16rem;
-}
-.body-measure {
-  max-width: var(--body-measure);
-}
-.container {
-  grid-template: auto 1fr auto / minmax(0, 1fr) var(--body-measure) minmax(0, 1fr);
-}
-
 .left-sidebar,
 .right-sidebar {
   display: none;
@@ -102,7 +98,6 @@ footer {
     --body-measure: calc(3000px * var(--body-percent));
   }
   .container {
-    grid-template: auto 1fr auto / minmax(0, 1fr) var(--body-measure) minmax(0, 1fr);
     margin: 0 auto;
   }
 }
