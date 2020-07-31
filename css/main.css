@@ -76,9 +76,9 @@ footer {
   grid-template: auto 1fr auto / minmax(0, 1fr) var(--body-measure) minmax(0, 1fr);
   /* margin: 0 auto; */
 }
-/* TODO utility classes */
-.container .left-sidebar,
-.container .right-sidebar {
+
+.left-sidebar,
+.right-sidebar {
   display: none;
 }
 @media (min-width: 640px) {
@@ -96,7 +96,7 @@ footer {
   }
 }
 @media (min-width: 1000px) {
-  .container .left-sidebar {
+  .left-sidebar {
     display: flex;
   }
 }
@@ -209,7 +209,7 @@ span[name]::after {
   .right-sidebar {
     counter-reset: sidenoteCount 1;
   }
-  .container .right-sidebar {
+  .right-sidebar {
     display: flex;
   }
   span[name]::after {
