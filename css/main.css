@@ -504,3 +504,38 @@ footer {
 footer small {
   font-size: 0.75em;
 }
+
+/* blockquotes and pull quotes */
+
+blockquote:not(.pullquote) {
+  border-left: 0.25em solid rgba(0, 0, 0, 0.4);
+  padding: 0 1em;
+  margin: 1em 0;
+}
+blockquote:not(.pullquote) > * {
+  margin: 0;
+}
+@media (min-width: 640px) {
+  blockquote:not(.pullquote) {
+    padding: 0 2em;
+  }
+}
+.pullquote {
+  border: none;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  margin: 1em 2em;
+}
+.pullquote::before {
+  grid-column: 1;
+  content: "“";
+  font-size: 5em;
+  line-height: 1;
+  opacity: 0.4;
+}
+@media (min-width: 640px) {
+  .pullquote {
+    padding: 0;
+    margin: 0 -8vw;
+  }
+}
