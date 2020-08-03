@@ -5,7 +5,6 @@ function initializeSidenotes() {
     aside.parentNode.removeChild(aside)
     sidebar.appendChild(aside)
   }
-
 }
 function updateSidenotes() {
   let asides = [...document.querySelectorAll("aside[name]")];
@@ -13,18 +12,19 @@ function updateSidenotes() {
   for (let aside of asides) {
     let name = aside.getAttribute("name");
     let span = document.querySelector(`span[name="${name}"]`);
-    let bodyRect = document.body.getBoundingClientRect();
+    // let containerRect = document.querySelector('.right-sidebar').getBoundingClientRect();
+    let containerRect = document.body.getBoundingClientRect();
     let elemRect = span.getBoundingClientRect();
 
     let styles = window.getComputedStyle(span);
     let spanLineHeight = parseInt(styles.getPropertyValue("line-height")) * 0.7; // optical adjustment
 
     let offset = 0
-    // offset += span.offsetParent.offsetTop;
+    offset += span.offsetParent.offsetTop;
 
     aside.style.top =
       Math.ceil(
-        elemRect.bottom - spanLineHeight - bodyRect.top - offset
+        elemRect.bottom - spanLineHeight - containerRect.top - offset
       ) + "px";
   }
 }

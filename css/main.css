@@ -47,7 +47,7 @@ body {
 }
 
 :root {
-  --body-measure: 100%;
+  --body-measure: auto;
   --sidebar-max: 16rem;
   --column-gap: 0;
 }
@@ -64,13 +64,59 @@ header {
   grid-column: 1 / 4;
 }
 .left-sidebar {
-  grid-column: 1 / 2;
+  grid-column: left-start / article-start;
 }
 main {
-  grid-column: 2 / 3;
+  grid-column: 1 / 4;
+
+  display: grid;
+  grid-template-columns: [full-start] 1rem
+                         [left-start] 1fr
+                         [article-start right-start] var(--body-measure)
+                         [article-end left-end] 1fr
+                         [right-end] 1rem [full-end];
+}
+main > * {
+  grid-column: article;
+}
+main .w-column {
+  grid-column: article;
+}
+main .w-grid {
+  grid-column: full;
+}
+main img.float-left,
+main img.float-right {
+  display: block;
+  width: 45%;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
+  border-radius: 0.25em;
+  margin: 0.5em;
+}
+main img.float-left {
+  margin-left: 0;
+  margin-right: 1em;
+}
+main img.float-right {
+  margin-left: 1em;
+  margin-right: 0;
+}
+main figure img {
+  max-width: 100%;
+  /*
+  display: inline-block;
+  vertical-align: middle;
+  height: auto;
+  */
+}
+main figure figcaption {
+  padding: 0 0.5em;
+  font-size: 90%;
+  opacity: 0.8;
+  text-align: center;
 }
 .right-sidebar {
-  grid-column: 3 / 4;
+  grid-column: left-end / right-end;
 }
 footer {
   grid-column: 1 / 4;
@@ -156,6 +202,11 @@ figure {
   margin: 0 auto;
   padding: 0 1rem;
 }
+@media (min-width: 640px) {
+  .mobile-pad {
+    padding: 0;
+  }
+}
 
 .relative {
   position: relative;
@@ -187,6 +238,19 @@ figure {
 
 .w-full	{
   width: 100%;
+}
+/*
+.w-screen {
+  width: 100vw;
+}
+*/
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
 }
 
 /* sidenotes */
@@ -239,7 +303,14 @@ span[name]::after {
 /* table of contents */
 
 .toc {
+  /*
   background-color: rgba(0, 0, 0, 0.04);
+  */
+
+  /* TODO */
+  position: absolute;
+  width: 20%;
+
   padding: 1em;
   margin-top: -1.5rem;
   padding-top: 3rem;
