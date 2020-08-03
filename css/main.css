@@ -47,64 +47,63 @@ body {
 }
 
 :root {
-  --body-measure: auto;
+  --article-measure: auto;
   --sidebar-max: 16rem;
   --column-gap: 0;
 }
-.body-measure {
-  max-width: var(--body-measure);
+.article-measure {
+  max-width: var(--article-measure);
 }
 .container {
   display: grid;
-  grid-template: auto 1fr auto / minmax(0, 1fr) var(--body-measure) minmax(0, 1fr);
+  /* grid-template: auto 1fr auto / minmax(0, 1fr) var(--article-measure) minmax(0, 1fr); */
+
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: [full-start] 1rem
+                         [left-start] 1fr
+                         [article-start right-start] var(--article-measure)
+                         [article-end left-end] 1fr
+                         [right-end] 1rem [full-end];
+
   height: 100vh;
   column-gap: var(--column-gap);
 }
-header {
-  grid-column: 1 / 4;
+.main > header {
+  grid-row: 1;
+  grid-column: article;
 }
-.left-sidebar {
+.main > .left-sidebar {
   grid-column: left-start / article-start;
 }
-main {
-  grid-column: 1 / 4;
-
-  display: grid;
-  grid-template-columns: [full-start] 1rem
-                         [left-start] 1fr
-                         [article-start right-start] var(--body-measure)
-                         [article-end left-end] 1fr
-                         [right-end] 1rem [full-end];
-}
-main > * {
+.main > * {
   grid-column: article;
 }
-main .w-column {
+.main .w-column {
   grid-column: article;
 }
-main .w-grid {
+.main .w-grid {
   grid-column: full;
 }
-main img.float-left,
-main img.float-right {
+.main img.float-left,
+.main img.float-right {
   display: block;
   width: 45%;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.4);
   border-radius: 0.25em;
   margin: 0.5em;
 }
-main img.float-left {
+.main img.float-left {
   margin-left: 0;
   margin-right: 1em;
 }
-main img.float-right {
+.main img.float-right {
   margin-left: 1em;
   margin-right: 0;
 }
-main figure {
+.main figure {
   text-align: center;
 }
-main figure img {
+.main figure img {
   max-width: 100%;
   /*
   display: inline-block;
@@ -112,7 +111,7 @@ main figure img {
   height: auto;
   */
 }
-main figure figcaption {
+.main figure figcaption {
   padding: 0 0.5em;
   font-size: 90%;
   opacity: 0.8;
@@ -121,8 +120,8 @@ main figure figcaption {
 .right-sidebar {
   grid-column: left-end / right-end;
 }
-footer {
-  grid-column: 1 / 4;
+.main > footer {
+  grid-column: full;
 }
 .left-sidebar,
 .right-sidebar {
@@ -130,14 +129,14 @@ footer {
 }
 @media (min-width: 640px) {
   :root {
-    --body-measure: 67%;
+    --article-measure: 67%;
     /* --column-gap: 0.5rem; */
     --column-gap: 0;
   }
 }
 @media (min-width: 768px) {
   :root {
-    --body-measure: 55%;
+    --article-measure: 55%;
   }
 }
 @media (min-width: 1000px) {
@@ -148,7 +147,7 @@ footer {
 @media (min-width: 3000px) {
   :root {
     --body-percent: 0.55;
-    --body-measure: calc(3000px * var(--body-percent));
+    --article-measure: calc(3000px * var(--body-percent));
   }
   .container {
     margin: 0 auto;
@@ -200,16 +199,6 @@ figure {
 }
 
 /* utilities */
-
-.mobile-pad {
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-@media (min-width: 640px) {
-  .mobile-pad {
-    padding: 0;
-  }
-}
 
 .relative {
   position: relative;
@@ -265,7 +254,7 @@ span[name]::after {
   display: none;
 }
 @media (min-width: 768px) {
-  main {
+  .main {
     counter-reset: sidenoteCount 0;
   }
   .right-sidebar {
@@ -415,38 +404,44 @@ span[name]::after {
 /* masthead */
 
 .masthead {
-  color: white;
+  grid-row: 1;
+  grid-column: full;
   background: linear-gradient(60deg, #6a4ce7 0%, #74effb 100%);
+  height: calc(30vh + 4rem);
 }
-.masthead .cover {
+.inner-cover {
+  margin-top: calc(0rem - (30vh + 2rem));
+  color: white;
+}
+.inner-cover .cover {
   height: 30vh;
   max-height: 14em;
   padding: 1.5rem 0 2rem 0;
   margin-bottom: 1.5rem;
 }
-.masthead .headline {
+.inner-cover .headline {
   font-size: 3rem;
   font-weight: 800;
   line-height: 0.9;
   margin: 0;
 }
 @media (min-width: 640px) {
-  .masthead .cover {
+  .inner-cover .cover {
     min-height: 14em;
   }
 }
 @media (min-width: 3000px) {
-  .masthead .cover {
+  .inner-cover .cover {
     min-height: 22em;
   }
 }
 @media (min-width: 2000px) {
-  .masthead .headline {
+  .inner-cover .headline {
     font-size: 4em;
   }
 }
 @media (min-width: 3000px) {
-  .masthead .headline {
+  .inner-cover .headline {
     font-size: 5em;
   }
 }
