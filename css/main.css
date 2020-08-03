@@ -84,6 +84,17 @@ body {
 .main .w-grid {
   grid-column: full;
 }
+.main .w-large {
+  grid-column: full;
+  margin: 0;
+}
+@media (min-width: 640px) {
+  .main .w-large {
+    grid-column: article;
+    margin: 1em -4vw;
+  }
+}
+
 .main img.float-left,
 .main img.float-right {
   display: block;
