@@ -101,6 +101,9 @@ main img.float-right {
   margin-left: 1em;
   margin-right: 0;
 }
+main figure {
+  text-align: center;
+}
 main figure img {
   max-width: 100%;
   /*
