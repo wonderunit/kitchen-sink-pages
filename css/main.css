@@ -70,6 +70,7 @@ body {
   grid-column: article;
 }
 .main > .left-sidebar {
+  grid-row: 2 / -1;
   grid-column: left-start / article-start;
 }
 .main > * {
@@ -301,9 +302,8 @@ span[name]::after {
 /* table of contents */
 
 .toc {
-  padding: 1em;
-  margin-top: -1.5rem;
-  padding-top: 3rem;
+  padding: 0 1em 1em 1em;
+  margin-top: 1.5rem;
   font-size: 70%;
   max-width: var(--sidebar-max);
 }
