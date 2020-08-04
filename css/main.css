@@ -58,7 +58,7 @@ body {
   display: grid;
   /* grid-template: auto 1fr auto / minmax(0, 1fr) var(--article-measure) minmax(0, 1fr); */
 
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: min(20rem, calc(30vh + 4rem)) 1fr auto;
   grid-template-columns: [full-start] 1rem
                          [left-start] 1fr
                          [article-start right-start] var(--article-measure)
@@ -418,14 +418,15 @@ span[name]::after {
   grid-row: 1;
   grid-column: full;
   background: linear-gradient(60deg, #6a4ce7 0%, #74effb 100%);
-  height: calc(30vh + 4rem);
+  z-index: -1;
 }
 .inner-cover {
-  margin-top: calc(0rem - (30vh + 2rem));
+  grid-row: 1;
+  grid-column: article;
+  margin-top: 2rem;
   color: white;
 }
 .inner-cover .cover {
-  height: 30vh;
   max-height: 14em;
   padding: 1.5rem 0 2rem 0;
   margin-bottom: 1.5rem;
