@@ -301,14 +301,6 @@ span[name]::after {
 /* table of contents */
 
 .toc {
-  /*
-  background-color: rgba(0, 0, 0, 0.04);
-  */
-
-  /* TODO */
-  position: absolute;
-  width: 20%;
-
   padding: 1em;
   margin-top: -1.5rem;
   padding-top: 3rem;
