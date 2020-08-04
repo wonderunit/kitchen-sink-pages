@@ -55,7 +55,7 @@ body {
 }
 .container {
   display: grid;
-  grid-template-rows: calc(30vh + 4rem) 1fr auto;
+  grid-template-rows: auto 1fr auto;
   grid-template-columns:
     [full-start] 1rem
     [left-start] 1fr
@@ -68,6 +68,7 @@ body {
 .main > header {
   grid-row: 1;
   grid-column: article;
+  height: calc(30vh + 4rem);
 }
 .main > .left-sidebar {
   grid-row: 2 / -1;
