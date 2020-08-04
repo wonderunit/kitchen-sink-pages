@@ -49,15 +49,12 @@ body {
 :root {
   --article-measure: auto;
   --sidebar-max: 16rem;
-  --column-gap: 0;
 }
 .article-measure {
   max-width: var(--article-measure);
 }
 .container {
   display: grid;
-  /* grid-template: auto 1fr auto / minmax(0, 1fr) var(--article-measure) minmax(0, 1fr); */
-
   grid-template-rows: min(20rem, calc(30vh + 4rem)) 1fr auto;
   grid-template-columns: [full-start] 1rem
                          [left-start] 1fr
@@ -66,7 +63,6 @@ body {
                          [right-end] 1rem [full-end];
 
   height: 100vh;
-  column-gap: var(--column-gap);
 }
 .main > header {
   grid-row: 1;
@@ -141,8 +137,6 @@ body {
 @media (min-width: 640px) {
   :root {
     --article-measure: 67%;
-    /* --column-gap: 0.5rem; */
-    --column-gap: 0;
   }
 }
 @media (min-width: 768px) {
