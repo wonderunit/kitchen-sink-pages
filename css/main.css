@@ -55,7 +55,7 @@ body {
 }
 .container {
   display: grid;
-  grid-template-rows: minmax(20rem, calc(30vh + 4rem)) 1fr auto;
+  grid-template-rows: calc(30vh + 4rem) 1fr auto;
   grid-template-columns:
     [full-start] 1rem
     [left-start] 1fr
