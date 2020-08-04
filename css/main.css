@@ -525,3 +525,11 @@ blockquote:not(.pullquote) > * {
     margin: 0 -8vw;
   }
 }
+
+/* photoswipe */
+
+.pswp {
+  font-family: "THICCCBoi", sans-serif;
+  letter-spacing: 0.03em;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
