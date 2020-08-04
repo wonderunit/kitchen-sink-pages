@@ -55,7 +55,7 @@ body {
 }
 .container {
   display: grid;
-  grid-template-rows: min(20rem, calc(30vh + 4rem)) 1fr auto;
+  grid-template-rows: minmax(20rem, calc(30vh + 4rem)) 1fr auto;
   grid-template-columns:
     [full-start] 1rem
     [left-start] 1fr
@@ -441,7 +441,7 @@ span[name]::after {
 }
 @media (min-width: 3000px) {
   .inner-cover .headline {
-    font-size: 5em;
+    font-size: 4.75em;
   }
 }
 
