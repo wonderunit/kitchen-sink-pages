@@ -279,7 +279,7 @@ span[name]::after {
     content: " " counter(sidenoteCount) "";
   }
   aside[name] {
-    display: block;
+    /* display: block; */
     position: absolute;
     font-size: 0.75rem;
     line-height: 1.3;

@@ -25,6 +25,7 @@ function updateSidenotes() {
     aside.style.top =
       Math.ceil(elemRect.bottom - spanLineHeight - containerRect.top - offset) +
       'px'
+    aside.style.display = 'block'
   }
 }
 
