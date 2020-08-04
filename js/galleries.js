@@ -1,11 +1,39 @@
+function parseFigureEl (figureEl) {
+  let linkEl = figureEl.children[0] // <a> element
+
+  let item = parseLinkEl(linkEl)
+
+  if (figureEl.children.length > 1) {
+    // <figcaption> content
+    item.title = figureEl.children[1].innerHTML.trim()
+  }
+
+  if (linkEl.children.length > 0) {
+    // <img> thumbnail element, retrieving thumbnail url
+    item.msrc = linkEl.children[0].getAttribute('src')
+  }
+
+  item.el = figureEl // save link to element for getThumbBoundsFn
+
+  return item
+}
+
+function parseLinkEl (linkEl) {
+  let size = linkEl.getAttribute('data-size').split('x')
+
+  // create slide object
+  return {
+    src: linkEl.getAttribute('href'),
+    w: parseInt(size[0], 10),
+    h: parseInt(size[1], 10)
+  }
+}
+
 function parseThumbnailElements (el) {
   let thumbElements = el.childNodes,
     numNodes = thumbElements.length,
     items = [],
-    figureEl,
-    linkEl,
-    size,
-    item
+    figureEl
 
   for (let i = 0; i < numNodes; i++) {
     figureEl = thumbElements[i] // <figure> element
@@ -15,29 +43,7 @@ function parseThumbnailElements (el) {
       continue
     }
 
-    linkEl = figureEl.children[0] // <a> element
-
-    size = linkEl.getAttribute('data-size').split('x')
-
-    // create slide object
-    item = {
-      src: linkEl.getAttribute('href'),
-      w: parseInt(size[0], 10),
-      h: parseInt(size[1], 10)
-    }
-
-    if (figureEl.children.length > 1) {
-      // <figcaption> content
-      item.title = figureEl.children[1].innerHTML
-    }
-
-    if (linkEl.children.length > 0) {
-      // <img> thumbnail element, retrieving thumbnail url
-      item.msrc = linkEl.children[0].getAttribute('src')
-    }
-
-    item.el = figureEl // save link to element for getThumbBoundsFn
-    items.push(item)
+    items.push(parseFigureEl(figureEl))
   }
 
   return items
@@ -58,7 +64,7 @@ function init () {
     history: false
   }
 
-  let click = (event) => {
+  let onGalleryClick = (event) => {
     event.preventDefault()
 
     if (event.target.tagName === 'IMG') {
@@ -76,9 +82,34 @@ function init () {
       ps.init()
     }
   }
+
+  let onFigureClick = event => {
+    event.preventDefault()
+
+    let figure = event.target.closest('figure')
+
+    let ps = new PhotoSwipe(
+      pswpElement,
+      PhotoSwipeUI_Default,
+      [parseFigureEl(figure)],
+      {
+      ...options,
+      index: 0
+      }
+    )
+    ps.init()
+  }
+
+  let figures = [...document.querySelectorAll('figure')]
+    .filter(el => el.parentNode.dataset.gallery == null)
+  for (let figure of figures) {
+    figure.addEventListener('click', onFigureClick)
+  }
+  
+
   let galleries = [...document.querySelectorAll('[data-gallery]')]
   for (let gallery of galleries) {
-    gallery.addEventListener('click', click)
+    gallery.addEventListener('click', onGalleryClick)
   }
 }
 
