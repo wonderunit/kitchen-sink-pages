@@ -55,7 +55,7 @@ function init () {
   let options = {
     mainClass: 'pswp--minimal--dark',
     barsSize: { top: 0, bottom: 0 },
-    captionEl: false,
+    captionEl: true,
     fullscreenEl: false,
     shareEl: false,
     bgOpacity: 0.85,
