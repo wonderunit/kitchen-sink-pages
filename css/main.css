@@ -93,6 +93,19 @@ body {
     margin: 1em -4vw;
   }
 }
+.main .w-window {
+  grid-column: full;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+}
+.main .w-window > div[style*="--aspect-ratio"] {
+  margin: 0;
+  width: 100vw;
+  margin: 2rem;
+}
 
 .main img.float-left,
 .main img.float-right {
