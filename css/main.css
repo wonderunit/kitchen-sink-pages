@@ -585,6 +585,13 @@ blockquote:not(.pullquote) > * {
   font-family: "THICCCBoi", sans-serif;
   -webkit-font-smoothing: subpixel-antialiased;
 }
+.pswp__caption {
+  background: none;
+  bottom: 1rem;
+}
+.pswp__caption__center {
+  text-align: center;
+}
 
 /* preserve aspect ratio */
 
