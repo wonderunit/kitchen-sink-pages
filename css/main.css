@@ -140,7 +140,6 @@ span[data-image] .caption {
 }
 .container figure img {
   width: 100%;
-  max-width: 100%;
   /*
   display: inline-block;
   vertical-align: middle;
@@ -387,7 +386,7 @@ span[name]::after {
   flex: 1;
 }
 .gallery figure img {
-  max-width: 100%;
+  width: 100%;
 }
 .gallery > * + * {
   margin-left: 1em;
