@@ -1,11 +1,11 @@
-function parseFigureEl (figureEl) {
-  let linkEl = figureEl.children[0] // <a> element
+function parseParentEl (parentEl) {
+  let linkEl = parentEl.children[0] // <a> element
 
   let item = parseLinkEl(linkEl)
 
-  if (figureEl.children.length > 1) {
+  if (parentEl.children.length > 1) {
     // <figcaption> content
-    item.title = figureEl.children[1].innerHTML.trim()
+    item.title = parentEl.children[1].innerHTML.trim()
   }
 
   if (linkEl.children.length > 0) {
@@ -13,7 +13,7 @@ function parseFigureEl (figureEl) {
     item.msrc = linkEl.children[0].getAttribute('src')
   }
 
-  item.el = figureEl // save link to element for getThumbBoundsFn
+  item.el = parentEl // save link to element for getThumbBoundsFn
 
   return item
 }
@@ -43,7 +43,7 @@ function parseThumbnailElements (el) {
       continue
     }
 
-    items.push(parseFigureEl(figureEl))
+    items.push(parseParentEl(figureEl))
   }
 
   return items
@@ -86,37 +86,59 @@ function init () {
       ].indexOf(parent)
       let items = parseThumbnailElements(gallery)
 
-      let ps = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
-        ...options,
-        index,
-        getThumbBoundsFn: index => getThumbBounds(items[index].el)
-      })
-      ps.init()
+      new PhotoSwipe(
+        pswpElement,
+        PhotoSwipeUI_Default,
+        items,
+        {
+          ...options,
+          index,
+          getThumbBoundsFn: index => getThumbBounds(items[index].el)
+        }
+      )
+      .init()
     }
+  }
+
+  let argsForSingleImage = parent => {
+    return [
+      pswpElement,
+      PhotoSwipeUI_Default,
+      [parseParentEl(parent)],
+      {
+        ...options,
+        index: 0,
+        getThumbBoundsFn: () => getThumbBounds(parent)
+      }
+    ]
   }
 
   let onFigureClick = event => {
     event.preventDefault()
 
-    let figure = event.target.closest('figure')
+    let parent = event.target.closest('figure')
 
-    let ps = new PhotoSwipe(
-      pswpElement,
-      PhotoSwipeUI_Default,
-      [parseFigureEl(figure)],
-      {
-        ...options,
-        index: 0,
-        getThumbBoundsFn: () => getThumbBounds(figure)
-      }
-    )
-    ps.init()
+    new PhotoSwipe(...argsForSingleImage(parent)).init() 
+  }
+
+  let onSpanClick = event => {
+    event.preventDefault()
+
+    let parent = event.target.closest('span')
+
+    new PhotoSwipe(...argsForSingleImage(parent)).init() 
   }
 
   let figures = [...document.querySelectorAll('figure')]
     .filter(el => el.parentNode.dataset.gallery == null)
   for (let figure of figures) {
     figure.addEventListener('click', onFigureClick)
+  }
+
+  let spans = [...document.querySelectorAll('span[data-image]')]
+  for (let span of spans) {
+    console.log(span)
+    span.addEventListener('click', onSpanClick)
   }
 
   let galleries = [...document.querySelectorAll('[data-gallery]')]

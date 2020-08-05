@@ -106,22 +106,41 @@ body {
   margin: 2rem;
 }
 
-.container img.float-left,
-.container img.float-right {
+.float-left,
+.float-right {
   display: block;
   width: 45%;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
-  border-radius: 0.25em;
   margin: 0.5em;
+  text-align: center;
 }
-.container img.float-left {
+.float-left {
   margin-left: 0;
   margin-right: 1em;
 }
-.container img.float-right {
+.float-right {
   margin-left: 1em;
   margin-right: 0;
 }
+.float-left a,
+.float-right a {
+  display: block;
+}
+.float-left img,
+.float-right img {
+  display: block;
+  max-width: 100%;
+  border-radius: 0.25em;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+}
+.float-left .caption,
+.float-right .caption {
+  display: inline-block;
+  padding: 0.5em 0 0;
+  font-size: 90%;
+  opacity: 0.8;
+  text-align: center;
+}
+
 .container figure {
   text-align: center;
 }
