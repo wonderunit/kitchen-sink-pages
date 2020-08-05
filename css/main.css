@@ -64,35 +64,35 @@ body {
 
   height: 100vh;
 }
-.main > header {
+.container > header {
   grid-row: 1;
   grid-column: article;
   height: calc(30vh + 4rem);
 }
-.main > .left-sidebar {
+.container > .left-sidebar {
   grid-row: 2 / -1;
   grid-column: left-start / article-start;
 }
-.main > * {
+.container > * {
   grid-column: article;
 }
-.main .w-column {
+.container .w-column {
   grid-column: article;
 }
-.main .w-grid {
+.container .w-grid {
   grid-column: full;
 }
-.main .w-large {
+.container .w-large {
   grid-column: full;
   margin: 1em 0;
 }
 @media (min-width: 640px) {
-  .main .w-large {
+  .container .w-large {
     grid-column: article;
     margin: 1em -4vw;
   }
 }
-.main .w-window {
+.container .w-window {
   grid-column: full;
   height: 100vh;
   display: flex;
@@ -100,32 +100,32 @@ body {
   align-items: center;
   background: black;
 }
-.main .w-window > div[style*="--aspect-ratio"] {
+.container .w-window > div[style*="--aspect-ratio"] {
   margin: 0;
   width: 100vw;
   margin: 2rem;
 }
 
-.main img.float-left,
-.main img.float-right {
+.container img.float-left,
+.container img.float-right {
   display: block;
   width: 45%;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
   border-radius: 0.25em;
   margin: 0.5em;
 }
-.main img.float-left {
+.container img.float-left {
   margin-left: 0;
   margin-right: 1em;
 }
-.main img.float-right {
+.container img.float-right {
   margin-left: 1em;
   margin-right: 0;
 }
-.main figure {
+.container figure {
   text-align: center;
 }
-.main figure img {
+.container figure img {
   max-width: 100%;
   /*
   display: inline-block;
@@ -133,7 +133,7 @@ body {
   height: auto;
   */
 }
-.main figure figcaption {
+.container figure figcaption {
   padding: 0 0.5em;
   font-size: 90%;
   opacity: 0.8;
@@ -142,7 +142,7 @@ body {
 .right-sidebar {
   grid-column: left-end / right-end;
 }
-.main > footer {
+.container > footer {
   grid-column: full;
 }
 .left-sidebar,
@@ -274,7 +274,7 @@ span[name]::after {
   display: none;
 }
 @media (min-width: 768px) {
-  .main {
+  .container {
     counter-reset: sidenoteCount 0;
   }
   .right-sidebar {
