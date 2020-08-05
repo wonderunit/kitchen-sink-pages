@@ -109,36 +109,43 @@ body {
 .float-left,
 .float-right {
   display: block;
-  width: 45%;
-  margin: 0.5em;
   text-align: center;
-}
-.float-left {
-  margin-left: 0;
-  margin-right: 1em;
-}
-.float-right {
-  margin-left: 1em;
-  margin-right: 0;
+  margin: 1em -1rem;
 }
 .float-left a,
 .float-right a {
   display: block;
 }
-span[data-image] img,
 span[data-image] img {
   display: block;
-  max-width: 100%;
-  border-radius: 0.25em;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+  width: 100%;
 }
-span[data-image] .caption,
 span[data-image] .caption {
   display: inline-block;
-  padding: 0.5em 0 0;
   font-size: 90%;
   opacity: 0.8;
   text-align: center;
+  padding-top: 0.5em;
+}
+@media (min-width: 640px) {
+  .float-left,
+  .float-right {
+    width: 45%;
+    margin: 1em 0 0 0;
+  }
+  .float-left {
+    margin-right: 1em;
+    float: left;
+  }
+  .float-right {
+    margin-left: 1em;
+    float: right;
+  }
+  span[data-image] img {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 0.25em;
+    width: 100%;
+  }
 }
 
 .container figure {
@@ -276,14 +283,6 @@ figure {
   width: 100vw;
 }
 */
-
-.float-right {
-  float: right;
-}
-
-.float-left {
-  float: left;
-}
 
 /* sidenotes */
 
