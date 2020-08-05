@@ -75,6 +75,25 @@ function init () {
     showHideOpacity: true
   }
 
+  let argsForGallery = (items, index) => {
+    return [
+      pswpElement,
+      PhotoSwipeUI_Default,
+      items,
+      {
+        ...options,
+        index,
+        getThumbBoundsFn: index => getThumbBounds(items[index].el)
+      }
+    ]
+  }
+
+  let argsForSingleImage = parent => {
+    let items = [parseParentEl(parent)]
+    let index = 0
+    return argsForGallery(items, index)
+  }
+
   let onGalleryClick = (event) => {
     event.preventDefault()
 
@@ -86,59 +105,19 @@ function init () {
       ].indexOf(parent)
       let items = parseThumbnailElements(gallery)
 
-      new PhotoSwipe(
-        pswpElement,
-        PhotoSwipeUI_Default,
-        items,
-        {
-          ...options,
-          index,
-          getThumbBoundsFn: index => getThumbBounds(items[index].el)
-        }
-      )
-      .init()
+      new PhotoSwipe(...argsForGallery(items, index)).init()
     }
   }
 
-  let argsForSingleImage = parent => {
-    return [
-      pswpElement,
-      PhotoSwipeUI_Default,
-      [parseParentEl(parent)],
-      {
-        ...options,
-        index: 0,
-        getThumbBoundsFn: () => getThumbBounds(parent)
-      }
-    ]
-  }
-
-  let onFigureClick = event => {
+  let onSingleImageClick = event => {
     event.preventDefault()
-
-    let parent = event.target.closest('figure')
-
+    let parent = event.target.closest('[data-image]')
     new PhotoSwipe(...argsForSingleImage(parent)).init() 
   }
 
-  let onSpanClick = event => {
-    event.preventDefault()
-
-    let parent = event.target.closest('span')
-
-    new PhotoSwipe(...argsForSingleImage(parent)).init() 
-  }
-
-  let figures = [...document.querySelectorAll('figure')]
-    .filter(el => el.parentNode.dataset.gallery == null)
-  for (let figure of figures) {
-    figure.addEventListener('click', onFigureClick)
-  }
-
-  let spans = [...document.querySelectorAll('span[data-image]')]
-  for (let span of spans) {
-    console.log(span)
-    span.addEventListener('click', onSpanClick)
+  let singleImageEls = [...document.querySelectorAll('[data-image]')]
+  for (let singleImageEl of singleImageEls) {
+    singleImageEl.addEventListener('click', onSingleImageClick)
   }
 
   let galleries = [...document.querySelectorAll('[data-gallery]')]
