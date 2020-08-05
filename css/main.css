@@ -125,15 +125,15 @@ body {
 .float-right a {
   display: block;
 }
-.float-left img,
-.float-right img {
+span[data-image] img,
+span[data-image] img {
   display: block;
   max-width: 100%;
   border-radius: 0.25em;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
 }
-.float-left .caption,
-.float-right .caption {
+span[data-image] .caption,
+span[data-image] .caption {
   display: inline-block;
   padding: 0.5em 0 0;
   font-size: 90%;
@@ -145,6 +145,7 @@ body {
   text-align: center;
 }
 .container figure img {
+  width: 100%;
   max-width: 100%;
   /*
   display: inline-block;
