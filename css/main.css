@@ -92,19 +92,6 @@ body {
     margin: 1em -4vw;
   }
 }
-.container .w-window {
-  grid-column: full;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: black;
-}
-.container .w-window > div[style*="--aspect-ratio"] {
-  margin: 0;
-  width: 100vw;
-  margin: 2rem;
-}
 
 .float-left,
 .float-right {
