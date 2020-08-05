@@ -49,6 +49,16 @@ function parseThumbnailElements (el) {
   return items
 }
 
+function getThumbBounds (el) {
+  let rect = el.getBoundingClientRect()
+  let pageYScroll = window.pageYOffset || document.documentElement.scrollTop; 
+  return {
+    x: rect.left,
+    y: rect.top + pageYScroll,
+    w: rect.width
+  }
+}
+
 function init () {
   let pswpElement = document.querySelectorAll('.pswp')[0]
 
@@ -61,7 +71,8 @@ function init () {
     bgOpacity: 0.85,
     tapToClose: true,
     tapToToggleControls: false,
-    history: false
+    history: false,
+    showHideOpacity: true
   }
 
   let onGalleryClick = (event) => {
@@ -77,7 +88,8 @@ function init () {
 
       let ps = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
         ...options,
-        index
+        index,
+        getThumbBoundsFn: index => getThumbBounds(items[index].el)
       })
       ps.init()
     }
@@ -93,8 +105,9 @@ function init () {
       PhotoSwipeUI_Default,
       [parseFigureEl(figure)],
       {
-      ...options,
-      index: 0
+        ...options,
+        index: 0,
+        getThumbBoundsFn: () => getThumbBounds(figure)
       }
     )
     ps.init()
@@ -105,7 +118,6 @@ function init () {
   for (let figure of figures) {
     figure.addEventListener('click', onFigureClick)
   }
-  
 
   let galleries = [...document.querySelectorAll('[data-gallery]')]
   for (let gallery of galleries) {
