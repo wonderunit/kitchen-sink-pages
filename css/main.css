@@ -376,7 +376,44 @@ span[name]::after {
     line-height: 1;
     font-size: 80%;
     margin-top: 0.2em;
-    opacity: 0.5;
+    opacity: 0;
+    transition: opacity 0.3s;
+    color: lightslategrey;
+  }
+  *:hover > .header-anchor {
+    opacity: 1;
+  }
+}
+
+/* audio player */
+
+audio[data-audio-player] {
+  margin: 1em 0;
+  width: 100%;
+}
+audio[data-audio-player] + p {
+  margin-top: 0;
+}
+
+/* speaker icon */
+
+.speaker-icon {
+  display: none;
+}
+@media (min-width: 640px) {
+  .speaker-icon {
+    position: absolute;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: -1.7em;
+    line-height: 1;
+    font-size: 80%;
+    margin-top: 0.2em;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  *:hover > .speaker-icon {
+    opacity: 1;
   }
 }
 
