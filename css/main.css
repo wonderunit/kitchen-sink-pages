@@ -405,12 +405,18 @@ audio[data-audio-player] + p {
     position: absolute;
     display: inline-block;
     vertical-align: middle;
-    margin-left: -1.7em;
+    margin-left: -2em;
     line-height: 1;
     font-size: 80%;
     margin-top: 0.2em;
     opacity: 0;
     transition: opacity 0.3s;
+
+    background-image: url(../speaker.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 1em;
+    height: 100%;
   }
   *:hover > .speaker-icon {
     opacity: 1;
