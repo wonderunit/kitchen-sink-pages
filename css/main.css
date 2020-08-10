@@ -435,13 +435,16 @@ span[name]::after {
   width: 100%;
   height: 100%;
 }
-.masthead video {
+.masthead video,
+.masthead img {
   object-fit: cover;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   position: absolute;
+}
+.masthead video {
   opacity: 0.2;
 }
 .inner-cover {
