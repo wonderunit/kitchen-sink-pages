@@ -1,4 +1,5 @@
 const init = () => {
+  let context = { curr: null }
   let player = document.querySelector('audio[data-audio-player]')
 
   let onKeyDown = event => {
@@ -14,11 +15,23 @@ const init = () => {
   let onClick = event => {
     event.preventDefault()
 
-    if (player.paused) {
-      player.currentTime = parseFloat(event.target.dataset.speakStart)
-      player.play()
+    let start = parseFloat(event.target.dataset.speakStart)
+
+    // already playing this section?
+    if (start == context.curr) {
+      // ... then toggle on/off
+      if (player.paused) {
+        context.curr = start
+        player.currentTime = start
+        player.play()
+      } else {
+        player.pause()
+      }
     } else {
-      player.pause()
+      // not already playing this section, so play
+      context.curr = start
+      player.currentTime = start
+      player.play()
     }
   }
 
