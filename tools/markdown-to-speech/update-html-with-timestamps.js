@@ -10,7 +10,7 @@ const updateHtmlWithTimestamps = (htmlString, speakable) => {
 
     if (h != titleHeading) {
       let id = h.getAttribute('id')
-      let { position } = speakable.find(d => d.basename == id)
+      let { position } = speakable.find(d => d.id == id)
 
       let div = dom.window.document.createElement('div')
       div.innerHTML = `<a class="speaker-icon" data-speak data-speak-start="${position}" href="#${id}"></a>`.trim()
@@ -20,7 +20,7 @@ const updateHtmlWithTimestamps = (htmlString, speakable) => {
 
   for (let p of dom.window.document.querySelectorAll('p')) {
     let id = p.getAttribute('id')
-    let { position } = speakable.find(d => d.basename == id)
+    let { position } = speakable.find(d => d.id == id)
 
     let div = dom.window.document.createElement('div')
     div.innerHTML = `<a class="speaker-icon" data-speak data-speak-start="${position}" href="#${id}"></a>`.trim()

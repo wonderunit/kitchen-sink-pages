@@ -11,7 +11,7 @@ const concatAudio = require('./concat-audio')
 let markdownFilePath = './A-Future-of-Visual-Storytelling.md'
 
 // create the output folder
-if (!fs.existsSync('output')) {
+if (fs.existsSync('output') == false) {
   fs.mkdirSync('output')
 }
 
@@ -23,11 +23,13 @@ let speakable = extractSpeakableText(htmlString)
 
 // generate the source audio for the concat file
 TTS.start()
-for (let { id, basename, text } of speakable) {
-  let outfilepath = `output/${basename}.aiff`
-  console.log('writing', outfilepath)
-  let audio = TTS.generate({ text })
-  fs.writeFileSync(outfilepath, audio)
+for (let { id, filename, text } of speakable) {
+  let outfilepath = `output/${filename}`
+  if (fs.existsSync(outfilepath) == false) {
+    console.log('writing', outfilepath)
+    let audio = TTS.generate({ text })
+    fs.writeFileSync(outfilepath, audio)
+  }
 }
 TTS.stop()
 
@@ -35,8 +37,8 @@ TTS.stop()
 
 let position = 0
 for (let entry of speakable) {
-  let { id, basename, text } = entry
-  let outfilepath = `output/${basename}.aiff`
+  let { id, filename, text } = entry
+  let outfilepath = `output/${filename}`
 
   console.log('calculating duration of', outfilepath)
 

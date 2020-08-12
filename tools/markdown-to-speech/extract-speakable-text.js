@@ -1,4 +1,5 @@
 const { JSDOM } = require('jsdom')
+const crypto = require('crypto')
 
 const extractSpeakableText = htmlString => {
   const dom = new JSDOM(htmlString)
@@ -13,7 +14,16 @@ const extractSpeakableText = htmlString => {
 
     let text = el.textContent.replace(/¶\s?/g, '')
 
-    data.push({ id, basename: id, text })
+    let hash = crypto.createHash('md5').update(text).digest('hex')
+
+    let filename = `${id}-${hash}.aiff`
+
+    data.push({
+      id,
+      text,
+      hash,
+      filename,
+    })
   }
 
   return data

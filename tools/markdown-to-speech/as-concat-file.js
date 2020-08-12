@@ -1,3 +1,3 @@
 module.exports = speakable => speakable
-  .map(entry => `file '${entry.basename + '.aiff'}'`)
+  .map(entry => `file '${entry.filename}'`)
   .join('\n')
