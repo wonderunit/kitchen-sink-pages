@@ -14,7 +14,9 @@ const extractSpeakableText = htmlString => {
 
     let text = el.textContent.replace(/¶\s?/g, '')
 
-    let hash = crypto.createHash('md5').update(text).digest('hex')
+    let settings = {}
+
+    let hash = crypto.createHash('md5').update(JSON.stringify({ text, settings })).digest('hex')
 
     let filename = `${id}-${hash}.aiff`
 
@@ -23,6 +25,7 @@ const extractSpeakableText = htmlString => {
       text,
       hash,
       filename,
+      settings
     })
   }
 
