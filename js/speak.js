@@ -9,11 +9,6 @@ const smoothScrollTo = el => {
   document.documentElement.style.scrollBehavior = ''
 }
 
-const getElementByFragment = fragment =>
-  document.getElementById(
-    new URL(event.target.href).hash.replace('#', '')
-  )
-
 const init = () => {
   let context = { curr: null }
   let player = document.querySelector('audio[data-audio-player]')
@@ -61,15 +56,26 @@ const init = () => {
   document.addEventListener('keydown', onKeyDown)
 
   // attach smooth scroll on click
-  let onPermalinkClick = event => {
+  // for table of contents, headline permalink icon, speaker icon
+  let onAnchorClick = event => {
     event.preventDefault()
 
-    let el = getElementByFragment(event.target)
-    if (el) smoothScrollTo(el)
+    let url = new URL(event.target.href)
+    let id = url.hash.replace('#', '')
+    let el = document.getElementById(id)
+
+    if (el) {
+      // only update URL fragment (hash) for table of contents and header permalink anchors
+      // ignore for paragraph anchors
+      if (el.tagName.toLowerCase() != 'p') {
+        window.location.hash = id
+      }
+      smoothScrollTo(el)
+    }
   }
-  document.querySelectorAll('nav.table-of-contents a, a.speaker-icon, a.header-anchor')
+  document.querySelectorAll('nav.table-of-contents a, a.header-anchor, a.speaker-icon')
     .forEach(el =>
-      el.addEventListener('click', onPermalinkClick))
+      el.addEventListener('click', onAnchorClick))
 }
 
 export default {
