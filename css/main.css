@@ -322,30 +322,30 @@ span[name]::after {
 
 /* table of contents */
 
-.toc {
+.table-of-contents {
   padding: 0 1em 1em 1em;
   margin-top: 1.5rem;
   font-size: 70%;
   max-width: var(--sidebar-max);
 }
-.toc ol {
+.table-of-contents ol {
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
-.toc ol {
+.table-of-contents ol {
   margin-bottom: 1em;
 }
-.toc ol > ol {
+.table-of-contents ol > ol {
   margin-bottom: 0;
 }
-.toc ol li {
+.table-of-contents ol li {
   font-weight: 800;
   letter-spacing: 0.10em;
   text-transform: uppercase;
   line-height: 1.2;
 }
-.toc ol ol li {
+.table-of-contents ol ol li {
   font-weight: normal;
   letter-spacing: normal;
   text-transform: none;
@@ -354,7 +354,7 @@ span[name]::after {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-.toc ol ol ol li {
+.table-of-contents ol ol ol li {
   font-weight: normal;
   line-height: 1.3;
 
