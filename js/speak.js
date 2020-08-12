@@ -76,6 +76,13 @@ const init = () => {
   document.querySelectorAll('nav.table-of-contents a, a.header-anchor, a.speaker-icon')
     .forEach(el =>
       el.addEventListener('click', onAnchorClick))
+
+  // attach "copy on click" handler
+  let onCopyableClick = event =>
+    navigator.clipboard.writeText(event.target.href)
+  document.querySelectorAll('a.header-anchor')
+    .forEach(el =>
+      el.addEventListener('click', onCopyableClick))
 }
 
 export default {
