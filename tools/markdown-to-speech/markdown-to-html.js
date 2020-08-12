@@ -4,7 +4,7 @@ const uslug = require('uslug')
 
 const stripNumberPrefix = x => x.replace(/\d\.\s/, '')
 
-const slugify = x => uslug(x)
+const slugify = x => uslug(stripNumberPrefix(x))
 
 const paragraphIds = (md, opts) => {
   let n = 1
@@ -23,9 +23,11 @@ const markdownToHtml = filepath => {
       permalink: true,
       permalinkBefore: true,
       permalinkSymbol: '¶',
-      slugify: x => slugify(stripNumberPrefix(x))
+      slugify
     })
-    .use(require('markdown-it-toc-done-right'))
+    .use(require('markdown-it-toc-done-right'), {
+      slugify
+    })
 
   return md.render(markdownString)
 }
