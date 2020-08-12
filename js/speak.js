@@ -1,3 +1,19 @@
+const smoothScrollTo = el => {
+  document.documentElement.style.scrollBehavior = 'smooth'
+  if (
+    el.getBoundingClientRect().bottom > (document.documentElement.clientHeight - 100) ||
+    el.getBoundingClientRect().top < 0
+  ) {
+    document.documentElement.scrollTop = el.offsetTop - 100 - 50
+  }
+  document.documentElement.style.scrollBehavior = ''
+}
+
+const getElementByFragment = fragment =>
+  document.getElementById(
+    new URL(event.target.href).hash.replace('#', '')
+  )
+
 const init = () => {
   let context = { curr: null }
   let player = document.querySelector('audio[data-audio-player]')
@@ -12,7 +28,7 @@ const init = () => {
     }
   }
 
-  let onClick = event => {
+  let onSpeakableClick = event => {
     event.preventDefault()
 
     let start = parseFloat(event.target.dataset.speakStart)
@@ -35,12 +51,25 @@ const init = () => {
     }
   }
 
+  // attach audio player control on click
   let els = document.querySelectorAll('[data-speak]')
   for (let el of els) {
-    el.addEventListener('click', onClick)
+    el.addEventListener('click', onSpeakableClick)
   }
 
+  // attach key handler
   document.addEventListener('keydown', onKeyDown)
+
+  // attach smooth scroll on click
+  let onPermalinkClick = event => {
+    event.preventDefault()
+
+    let el = getElementByFragment(event.target)
+    if (el) smoothScrollTo(el)
+  }
+  document.querySelectorAll('nav.table-of-contents a, a.speaker-icon, a.header-anchor')
+    .forEach(el =>
+      el.addEventListener('click', onPermalinkClick))
 }
 
 export default {
