@@ -36,16 +36,23 @@ TTS.stop()
 // calculate the timestamps from the generated audio
 
 let position = 0
-for (let entry of speakable) {
+speakable.forEach((entry, n) => {
   let { id, filename, text } = entry
   let outfilepath = `output/${filename}`
+  let metadatafilepath = `output/${filename}.json`
 
-  console.log('calculating duration of', outfilepath)
+  if (fs.existsSync(metadatafilepath)) {
+    speakable[n] = JSON.parse(fs.readFileSync(metadatafilepath, 'utf-8'))
+  } else {
+    console.log('calculating duration of', outfilepath)
 
-  entry.duration = calculateDuration(outfilepath)
-  entry.position = position.toFixed(3)
+    entry.duration = calculateDuration(outfilepath)
+    entry.position = position.toFixed(3)
+    fs.writeFileSync(metadatafilepath, JSON.stringify(entry, null, 2))
+  }
+
   position += entry.duration
-}
+})
 
 // update the HTML with the timestamps
 let htmlStringWithTimestamps = updateHtmlWithTimestamps(htmlString, speakable)
