@@ -21,7 +21,7 @@ const stop = () => {
   fs.rmdirSync(folder)
 }
 
-const generate = ({ text }) => {
+const generate = ({ text, settings }) => {
   let tmpfilepath = path.join(folder, 'output.aiff')
 
   let { status, signal, stdout, stderr } = spawnSync(

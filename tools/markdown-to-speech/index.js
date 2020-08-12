@@ -23,11 +23,11 @@ let speakable = extractSpeakableText(htmlString)
 
 // generate the source audio for the concat file
 TTS.start()
-for (let { id, filename, text } of speakable) {
+for (let { id, filename, text, settings } of speakable) {
   let outfilepath = `output/${filename}`
   if (fs.existsSync(outfilepath) == false) {
     console.log('writing', outfilepath)
-    let audio = TTS.generate({ text })
+    let audio = TTS.generate({ text, settings })
     fs.writeFileSync(outfilepath, audio)
   }
 }
