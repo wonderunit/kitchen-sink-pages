@@ -10,6 +10,7 @@ const concatAudio = filepath => {
       '-b:a', '192k',
       '-ar', '44100',
 
+      '-y',
       filepath
     ]
   )
