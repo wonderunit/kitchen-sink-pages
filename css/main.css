@@ -199,6 +199,23 @@ p:first-of-type {
   font-weight: 400;
 }
 
+ul {
+  margin-top: 0;
+}
+ul li p:first-of-type {
+  font-size: 1em;
+}
+
+@media (min-width: 640px) {
+  ul li p .speaker-icon {
+    margin-left: -4em;
+    margin-top: 0.25em;
+  }
+  ul li p .speaker-icon:after {
+    padding-right: 3em;
+  }
+}
+
 h1 {
   font-size: 2em;
   font-weight: 800;
@@ -375,7 +392,7 @@ span[name]::after {
     margin-left: -0.7em;
     line-height: 1;
     font-size: 80%;
-    margin-top: 0.2em;
+    margin-top: 0.25em;
     opacity: 0;
     transition: opacity 0.3s;
     color: lightslategrey;

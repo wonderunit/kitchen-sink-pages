@@ -336,21 +336,21 @@ AI or Machine Learning has produced some really interesting visual research in t
 
 The areas that I think AI will particularly interesting are:
 
-**Rotoscoping** - Masking subjects out of a video. In ML, this is usually called image segmentation or background removal. 
+- **Rotoscoping** - Masking subjects out of a video. In ML, this is usually called image segmentation or background removal. 
 
-**Relighting** - Take an existing video and change the position of the light sources to relight the video.
+- **Relighting** - Take an existing video and change the position of the light sources to relight the video.
 
-**Face replacement** - Replace a video clips face with an existing face model.
+- **Face replacement** - Replace a video clips face with an existing face model.
 
-**Performance replacement** - Take an existing shot with a performance and camera movement, and replace the performance matching the existing style of the video.
+- **Performance replacement** - Take an existing shot with a performance and camera movement, and replace the performance matching the existing style of the video.
 
-**Dynamic retiming** - Independantly retime performance from camera movement.
+- **Dynamic retiming** - Independantly retime performance from camera movement.
 
-**Speech Editing / Speech Synthesis** - Change words in a sentence in a performance.
+- **Speech Editing / Speech Synthesis** - Change words in a sentence in a performance.
 
-**Audio Cleanup** - Eliminate background from noisy recordings.
+- **Audio Cleanup** - Eliminate background from noisy recordings.
 
-**Audio style matching** - Given an existing recording of a voice actor, match the style with a new actor's voice.
+- **Audio style matching** - Given an existing recording of a voice actor, match the style with a new actor's voice.
 
 # 5. Distribution
 
