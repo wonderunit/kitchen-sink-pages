@@ -70,7 +70,9 @@ const concatAudio = require('./concat-audio')
   fs.writeFileSync(`output/${htmloutfile}`, htmlStringWithTimestamps)
 
   // TODO cleanup
-  //
-  // remove output/*.aiff
+  // remove output/*.wav
+  // remove output/*.wav.json
   // remove output/*.txt
+  // remove output/*.html
+  // remove output/*.mp3
 })()
