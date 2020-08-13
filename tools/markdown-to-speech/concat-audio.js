@@ -7,8 +7,9 @@ const concatAudio = filepath => {
       '-f', 'concat',
       '-i', 'output/concat.txt',
 
+      '-ac', 1,
       '-b:a', '192k',
-      '-ar', '44100',
+      '-ar', '24000',
 
       '-y',
       filepath
