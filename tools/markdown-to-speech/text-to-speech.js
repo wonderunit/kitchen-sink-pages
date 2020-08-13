@@ -1,45 +1,20 @@
-const { spawnSync } = require('child_process')
-const path = require('path')
-const fs = require('fs')
-const os = require('os')
+const textToSpeech = require('@google-cloud/text-to-speech')
 
-const createTempFolder = () => {
-  return fs.mkdtempSync(path.join(os.tmpdir(), 'wonderunit-tts-'))
-}
+const client = new textToSpeech.TextToSpeechClient({
+  keyFilename: './tts.json'
+})
 
-let folder
+const generate = async ({ text, settings }) => {
+  let request = {
+    input: { text },
+    ...settings
+  }
 
-const start = () => {
-  console.log('setup')
-  folder = createTempFolder()
-  console.log('created', folder)
-}
+  let [response] = await client.synthesizeSpeech(request)
 
-const stop = () => {
-  console.log('teardown')
-  console.log('removing', folder)
-  fs.rmdirSync(folder)
-}
-
-const generate = ({ text, settings }) => {
-  let tmpfilepath = path.join(folder, 'output.aiff')
-
-  let { status, signal, stdout, stderr } = spawnSync(
-    'say', [
-      text,
-      '-o', tmpfilepath
-    ]
-  )
-  if (status) throw new Error(stderr.toString())
-
-  let data = fs.readFileSync(tmpfilepath)
-  fs.unlinkSync(tmpfilepath)
-
-  return data
+  return response.audioContent
 }
 
 module.exports = {
-  start,
-  stop,
   generate
 }

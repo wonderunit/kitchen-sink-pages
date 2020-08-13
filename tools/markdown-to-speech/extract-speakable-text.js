@@ -1,6 +1,18 @@
 const { JSDOM } = require('jsdom')
 const crypto = require('crypto')
 
+const defaultSettings = {
+  voice: {
+    'languageCode': 'en-US',
+    'name': 'en-US-Wavenet-D'
+  },
+  audioConfig: {
+    audioEncoding: 'MP3',
+    pitch: '-5.00',
+    'speakingRate': '1.25'
+  }
+}
+
 const extractSpeakableText = htmlString => {
   const dom = new JSDOM(htmlString)
 
@@ -14,7 +26,9 @@ const extractSpeakableText = htmlString => {
 
     let text = el.textContent.replace(/¶\s?/g, '')
 
-    let settings = {}
+    let settings = {
+      ...defaultSettings
+    }
 
     let hash = crypto.createHash('md5').update(JSON.stringify({ text, settings })).digest('hex')
 
