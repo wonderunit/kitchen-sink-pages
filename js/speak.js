@@ -80,6 +80,7 @@ const init = () => {
   // attach "copy on click" handler
   let onCopyableClick = event =>
     navigator.clipboard.writeText(event.target.href)
+
   document.querySelectorAll('a.header-anchor')
     .forEach(el =>
       el.addEventListener('click', onCopyableClick))
