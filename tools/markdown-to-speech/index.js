@@ -3,7 +3,6 @@ const fs = require('fs')
 const markdownToHtml = require('./markdown-to-html')
 const extractSpeakableText = require('./extract-speakable-text')
 const TTS = require('./text-to-speech')
-const asConcatFile = require('./as-concat-file')
 const calculateDuration = require('./calculate-duration')
 const updateHtmlWithTimestamps = require('./update-html-with-timestamps')
 const concatAudio = require('./concat-audio')
@@ -22,7 +21,7 @@ const concatAudio = require('./concat-audio')
   // extract the speakable text from the HTML
   let speakable = extractSpeakableText(htmlString)
 
-  // generate the source audio for the concat file
+  // generate the source audio
   for (let { id, filename, text, settings } of speakable) {
     let outfilepath = `output/${filename}`
     if (fs.existsSync(outfilepath) == false) {
@@ -56,13 +55,12 @@ const concatAudio = require('./concat-audio')
   // update the HTML with the timestamps
   let htmlStringWithTimestamps = updateHtmlWithTimestamps(htmlString, speakable)
 
-  // write the concat instruction file for ffmpeg to use
-  let concatFile = asConcatFile(speakable)
-  fs.writeFileSync(`output/concat.txt`, concatFile)
-
   // run ffmpeg on the concat instruction file to render the concatenated mp3
+  speakable.forEach((entry, n) => {
+    entry.outfile = `output/${entry.filename}`
+  })
   console.log('concatenating audio to', 'output/rendered.mp3')
-  concatAudio('output/rendered.mp3')
+  concatAudio(speakable, 'output/rendered.mp3')
 
   // write the final HTML
   let htmloutfile = path.basename(markdownFilePath, path.extname(markdownFilePath)) + '.html'
