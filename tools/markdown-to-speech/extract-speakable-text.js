@@ -7,7 +7,7 @@ const defaultSettings = {
     'name': 'en-US-Wavenet-D'
   },
   audioConfig: {
-    audioEncoding: 'MP3',
+    audioEncoding: 'LINEAR16',
     pitch: '-5.00',
     'speakingRate': '1.25'
   }
@@ -32,7 +32,7 @@ const extractSpeakableText = htmlString => {
 
     let hash = crypto.createHash('md5').update(JSON.stringify({ text, settings })).digest('hex')
 
-    let filename = `${id}-${hash}.aiff`
+    let filename = `${id}-${hash}.wav`
 
     data.push({
       id,
