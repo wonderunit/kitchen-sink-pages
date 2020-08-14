@@ -32,8 +32,6 @@ const concatAudio = require('./concat-audio')
   }
 
   // calculate the timestamps from the generated audio
-
-  let position = 0
   speakable.forEach((entry, n) => {
     let { id, filename, text } = entry
     let outfilepath = `output/${filename}`
@@ -45,22 +43,19 @@ const concatAudio = require('./concat-audio')
       console.log('calculating duration of', outfilepath)
 
       entry.duration = calculateDuration(outfilepath)
-      entry.position = position.toFixed(3)
       fs.writeFileSync(metadatafilepath, JSON.stringify(entry, null, 2))
     }
-
-    position += entry.duration
   })
-
-  // update the HTML with the timestamps
-  let htmlStringWithTimestamps = updateHtmlWithTimestamps(htmlString, speakable)
 
   // run ffmpeg on the concat instruction file to render the concatenated mp3
   speakable.forEach((entry, n) => {
     entry.outfile = `output/${entry.filename}`
   })
   console.log('concatenating audio to', 'output/rendered.mp3')
-  concatAudio(speakable, 'output/rendered.mp3')
+  speakable = concatAudio(speakable, 'output/rendered.mp3')
+
+  // update the HTML with the timestamps
+  let htmlStringWithTimestamps = updateHtmlWithTimestamps(htmlString, speakable)
 
   // write the final HTML
   let htmloutfile = path.basename(markdownFilePath, path.extname(markdownFilePath)) + '.html'

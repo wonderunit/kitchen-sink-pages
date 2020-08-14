@@ -1,45 +1,81 @@
 const { spawnSync } = require('child_process')
 
-// via https://ffmpeg.org/ffmpeg-filters.html#concat
-//     https://trac.ffmpeg.org/wiki/Concatenate#filter
-//
-// e.g.:
-//
-// ffmpeg                           \
-//   -i output/1.wav                \
-//   -i output/2.wav                \
-//   -i output/3.wav                \
-//   -filter_complex                \
-//     "[0:a] [1:a] [2:a]           \
-//      concat=n=3:v=0:a=1 [a]"     \
-//   -map "[a]"                     \
-//   -ac 1                          \
-//   -b:a 192k                      \
-//   -ar 24000                      \
-//   -y                             \
-//   output/concat.mp3
+const NULLSRC = 0
+const SFX_INTRO = 1
+const SFX_BREAK = 2
 
 const concatAudio = (speakable, filepath) => {
-  let inputs = speakable
-    .map(data => data.outfile)
-  
-  let streams = speakable
-      .map((entry, i) => `[${i}:a]`)
-      .join(' ')
+  let inputs = []
+  let filters = []
+  let outputs = []
 
-  let n = speakable.length
+  inputs[SFX_INTRO] = 'sounds/intro.aiff'
+  inputs[SFX_BREAK] = 'sounds/break.aiff'
 
-  let filtergraph = `${streams} concat=n=${n}:v=0:a=1 [outa]`
+  let offset = 0 // msecs
+  for (let entry of speakable) {
+    let i = inputs.length
+    inputs.push(entry.outfile)
+
+    let inpad = `[${i}:a]`
+    let outpad = `[s${i}]`
+
+    if (entry.settings.effect == 'title') {
+      filters.push(`[${SFX_INTRO}:0]adelay=${offset},volume=0.3,afade=t=out:st=${offset/1000 + 3}:d=2[s${i}fx]`)
+      outputs.push(`[s${i}fx]`)
+
+      offset += 2000
+
+      entry.position = offset / 1000
+      filters.push(`${inpad}adelay=${offset}${outpad}`)
+      outputs.push(outpad)
+      offset = offset + (entry.duration * 1000)
+
+      offset += 2000
+
+    } else if (entry.settings.effect == 'heading') {
+      filters.push(`[${SFX_BREAK}:0]adelay=${offset},volume=0.4[s${i}fx]`)
+      outputs.push(`[s${i}fx]`)
+
+      offset += 1000
+
+      entry.position = offset / 1000
+      filters.push(`${inpad}adelay=${offset}${outpad}`)
+      outputs.push(outpad)
+      offset = offset + (entry.duration * 1000)
+
+    } else {
+      entry.position = offset / 1000
+      filters.push(`${inpad}adelay=${offset}${outpad}`)
+      outputs.push(outpad)
+      offset = offset + (entry.duration * 1000)
+    }
+  }
+
+  let last = speakable[speakable.length - 1]
+  let total = last.position + last.duration
+ 
+  // first input is silence for the entire duration
+  // so that amix can mix over it (duration=first)
+  filters.unshift(`[${NULLSRC}:0]atrim=duration=${total}[sn]`)
+  outputs.unshift(`[sn]`)
+
+  let n = outputs.length
+  filters.push(`${outputs.join('')}amix=inputs=${n}:duration=first:dropout_transition=99999999,volume=${n}`)
+
+  let filtergraph = filters.join(';')
 
   let args = [
     '-loglevel', 8,
+
+    '-f', 'lavfi',
+    '-i', 'anullsrc=channel_layout=mono:sample_rate=24000',
 
     ...inputs
       .map(f => ['-i', f])
       .flat(),
 
     '-filter_complex', filtergraph,
-    '-map', '[outa]',
 
     '-ac', 1,
     '-b:a', '192k',
@@ -53,6 +89,8 @@ const concatAudio = (speakable, filepath) => {
     'ffmpeg', args
   )
   if (status) throw new Error(stderr.toString())
+
+  return speakable
 }
 
 module.exports = concatAudio
