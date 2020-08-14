@@ -66,8 +66,6 @@ const concatAudio = (speakable, filepath) => {
   let filtergraph = filters.join(';')
 
   let args = [
-    '-loglevel', 8,
-
     '-f', 'lavfi',
     '-i', 'anullsrc=channel_layout=mono:sample_rate=24000',
 
