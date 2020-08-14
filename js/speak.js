@@ -46,6 +46,30 @@ const init = () => {
     }
   }
 
+  let onTimeUpdate = event => {
+    // get the current time
+    let { currentTime } = event.target
+    // find the closest speak-start w/o going over
+    let els = document.querySelectorAll('[data-speak-start]')
+    let match
+    for (let el of els) {
+      if (parseFloat(el.dataset.speakStart) <= currentTime) {
+        match = el
+      } else {
+        break
+      }
+    }
+    // set the current speak-start time and scroll to the element
+    let start = parseFloat(match.dataset.speakStart)
+    if (context.curr != start) {
+      context.curr = start
+      smoothScrollTo(match)
+    }
+  }
+
+  // attach currentTime listener
+  player.addEventListener('timeupdate', onTimeUpdate)
+
   // attach audio player control on click
   let els = document.querySelectorAll('[data-speak]')
   for (let el of els) {
