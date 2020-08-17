@@ -21,6 +21,8 @@ const concatAudio = (speakable, filepath) => {
     let outpad = `[s${i}]`
 
     if (entry.settings.effect == 'title') {
+      entry.position = offset / 1000
+
       // play the intro sound
       filters.push(`[${SFX_INTRO}:0]adelay=${offset},volume=0.3[s${i}fx]`)
       outputs.push(`[s${i}fx]`)
@@ -29,7 +31,6 @@ const concatAudio = (speakable, filepath) => {
       offset += 1000
 
       // play the title reading
-      entry.position = offset / 1000
       filters.push(`${inpad}adelay=${offset}${outpad}`)
       outputs.push(outpad)
 
@@ -37,6 +38,8 @@ const concatAudio = (speakable, filepath) => {
       offset += 8000
 
     } else if (entry.settings.effect == 'heading') {
+      entry.position = offset / 1000
+
       // play the heading sound
       filters.push(`[${SFX_HEADING}:0]adelay=${offset},volume=1.0[s${i}fx]`)
       outputs.push(`[s${i}fx]`)
@@ -45,7 +48,6 @@ const concatAudio = (speakable, filepath) => {
       offset += 1000
 
       // play the heading reading
-      entry.position = offset / 1000
       filters.push(`${inpad}adelay=${offset}${outpad}`)
       outputs.push(outpad)
       offset = offset + (entry.duration * 1000)
