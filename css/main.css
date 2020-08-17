@@ -692,3 +692,63 @@ blockquote:not(.pullquote) > * {
     height: 100%;
   }  
 }
+
+.audio-player {
+  margin-top: 1rem;
+  margin-left: 1rem;
+
+  width: 9rem;
+  height: 2rem;
+  background-color: #ddd;
+  border-radius: 2rem;
+
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+
+  display: none;
+  overflow: hidden;
+
+  padding: 0.5rem 0.75rem;
+
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+@media (min-width: 640px) {
+  .audio-player {
+    display: flex;
+  }
+}
+.audio-player .button {
+  display: block;
+
+  height: 100%;
+  width: 40%;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  opacity: 0.8;
+}
+.audio-player .button--pause {
+  background-image: url(../icons.svg#pause);
+}
+.audio-player .button--play {
+  position: relative;
+  left: 0.1rem;
+  background-image: url(../icons.svg#play);
+}
+.audio-player .progress-bar {
+  height: 0.5rem;
+  width: 150%;
+  background-color: #ccc;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+.audio-player .progress {
+  width: 0;
+  height: 100%;
+  background-color: purple;
+}
+
