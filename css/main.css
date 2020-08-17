@@ -699,7 +699,8 @@ blockquote:not(.pullquote) > * {
 
   width: 9rem;
   height: 2rem;
-  background-color: #ddd;
+  background-color: rgba(0, 0, 0, 0.15);
+
   border-radius: 2rem;
 
   justify-content: space-between;
@@ -724,12 +725,10 @@ blockquote:not(.pullquote) > * {
   display: block;
 
   height: 100%;
-  width: 40%;
+  width: 20%;
 
   background-repeat: no-repeat;
   background-size: contain;
-
-  opacity: 0.8;
 }
 .audio-player .button--pause {
   background-image: url(../icons.svg#pause);
@@ -740,15 +739,14 @@ blockquote:not(.pullquote) > * {
   background-image: url(../icons.svg#play);
 }
 .audio-player .progress-bar {
-  height: 0.5rem;
-  width: 150%;
-  background-color: #ccc;
-  border-radius: 0.25rem;
+  height: 0.75rem;
+  width: 80%;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
   overflow: hidden;
 }
 .audio-player .progress {
-  width: 0;
+  width: 25%;
   height: 100%;
-  background-color: purple;
+  background-color:rgba(106, 76, 231);
 }
-
