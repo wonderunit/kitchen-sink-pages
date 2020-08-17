@@ -699,7 +699,6 @@ blockquote:not(.pullquote) > * {
 
   width: 9rem;
   height: 2rem;
-  background-color: rgba(0, 0, 0, 0.15);
 
   border-radius: 2rem;
 
@@ -715,6 +714,19 @@ blockquote:not(.pullquote) > * {
   position: fixed;
   top: 0;
   z-index: 1;
+}
+.audio-player:before {
+  content: '';
+  background-color: rgba(0, 0, 0, 0.1);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 9rem;
+  height: 2rem;
+  padding: 0.5rem 0.75rem;
+
+  mix-blend-mode: multiply;
 }
 @media (min-width: 640px) {
   .audio-player {
@@ -741,9 +753,10 @@ blockquote:not(.pullquote) > * {
 .audio-player .progress-bar {
   height: 0.75rem;
   width: 80%;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 0.75rem;
   overflow: hidden;
+  mix-blend-mode: screen;
 }
 .audio-player .progress {
   width: 25%;
