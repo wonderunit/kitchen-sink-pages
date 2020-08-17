@@ -24,7 +24,7 @@ const init = () => {
   // attach currentTime listener
   player.addEventListener('timeupdate', onTimeUpdate)
 
-  // attach pause listener
+  // attach pause/play listener
   player.addEventListener('pause', onPause)
   player.addEventListener('play', onPlay)
 
