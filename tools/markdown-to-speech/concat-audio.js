@@ -2,7 +2,7 @@ const { spawnSync } = require('child_process')
 
 const NULLSRC = 0
 const SFX_INTRO = 1
-const SFX_BREAK = 2
+const SFX_HEADING = 2
 
 const concatAudio = (speakable, filepath) => {
   let inputs = []
@@ -10,7 +10,7 @@ const concatAudio = (speakable, filepath) => {
   let outputs = []
 
   inputs[SFX_INTRO] = 'sounds/intro.aiff'
-  inputs[SFX_BREAK] = 'sounds/break.aiff'
+  inputs[SFX_HEADING] = 'sounds/heading.aiff'
 
   let offset = 0 // msecs
   for (let entry of speakable) {
@@ -21,24 +21,30 @@ const concatAudio = (speakable, filepath) => {
     let outpad = `[s${i}]`
 
     if (entry.settings.effect == 'title') {
-      filters.push(`[${SFX_INTRO}:0]adelay=${offset},volume=0.3,afade=t=out:st=${offset/1000 + 3}:d=2[s${i}fx]`)
+      // play the intro sound
+      filters.push(`[${SFX_INTRO}:0]adelay=${offset},volume=0.3[s${i}fx]`)
       outputs.push(`[s${i}fx]`)
 
-      offset += 2000
+      // wait 1s
+      offset += 1000
 
+      // play the title reading
       entry.position = offset / 1000
       filters.push(`${inpad}adelay=${offset}${outpad}`)
       outputs.push(outpad)
-      offset = offset + (entry.duration * 1000)
 
-      offset += 2000
+      // wait 8s
+      offset += 8000
 
     } else if (entry.settings.effect == 'heading') {
-      filters.push(`[${SFX_BREAK}:0]adelay=${offset},volume=0.4[s${i}fx]`)
+      // play the heading sound
+      filters.push(`[${SFX_HEADING}:0]adelay=${offset},volume=1.0[s${i}fx]`)
       outputs.push(`[s${i}fx]`)
 
+      // wait 1s
       offset += 1000
 
+      // play the heading reading
       entry.position = offset / 1000
       filters.push(`${inpad}adelay=${offset}${outpad}`)
       outputs.push(outpad)
@@ -67,7 +73,7 @@ const concatAudio = (speakable, filepath) => {
 
   let args = [
     '-f', 'lavfi',
-    '-i', 'anullsrc=channel_layout=mono:sample_rate=24000',
+    '-i', 'anullsrc=channel_layout=mono:sample_rate=44100',
 
     ...inputs
       .map(f => ['-i', f])
@@ -77,7 +83,7 @@ const concatAudio = (speakable, filepath) => {
 
     '-ac', 1,
     '-b:a', '192k',
-    '-ar', '24000',
+    '-ar', '44100',
 
     '-y',
     filepath
