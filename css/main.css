@@ -693,6 +693,8 @@ blockquote:not(.pullquote) > * {
   }  
 }
 
+/* audio player */
+
 .audio-player {
   margin-top: 1rem;
   margin-left: 1rem;
@@ -762,4 +764,9 @@ blockquote:not(.pullquote) > * {
   width: 25%;
   height: 100%;
   background-color:rgba(106, 76, 231);
+}
+
+[data-speak-active] {
+  color: red;
+  background-color: #ffc;
 }

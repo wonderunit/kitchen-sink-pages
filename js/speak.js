@@ -9,6 +9,16 @@ const smoothScrollTo = el => {
   document.documentElement.style.scrollBehavior = ''
 }
 
+const renderHighlight = curr => {
+  let prev = document.querySelector('[data-speak-active') 
+  if (prev) {
+    delete prev.dataset.speakActive
+  }
+  if (curr) {
+    curr.dataset.speakActive = true
+  }
+}
+
 const init = () => {
   let context = { curr: null }
   let player = document.querySelector('audio[data-audio-player]')
@@ -65,6 +75,7 @@ const init = () => {
       context.curr = start
       smoothScrollTo(match)
     }
+    renderHighlight(match.parentNode)
   }
 
   // attach currentTime listener
