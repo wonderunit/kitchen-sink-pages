@@ -12,6 +12,8 @@ const concatAudio = (speakable, filepath) => {
   inputs[SFX_INTRO] = 'sounds/intro.aiff'
   inputs[SFX_HEADING] = 'sounds/heading.aiff'
 
+  let byline = speakable.find(entry => entry.settings.effect === 'byline')
+
   let offset = 0 // msecs
   for (let entry of speakable) {
     let i = inputs.length
@@ -34,8 +36,22 @@ const concatAudio = (speakable, filepath) => {
       filters.push(`${inpad}adelay=${offset}${outpad}`)
       outputs.push(outpad)
 
-      // wait 8s
-      offset += 8000
+      if (byline) {
+        // byline will start immediately after the title
+        offset = offset + (entry.duration * 1000)
+      } else {
+        // wait 8s of silence before continuing
+        offset += 8000
+      }
+
+    } else if (entry.settings.effect == 'byline') {
+      entry.position = offset / 1000
+      filters.push(`${inpad}adelay=${offset}${outpad}`)
+      outputs.push(outpad)
+      offset = offset + (entry.duration * 1000)
+
+      // then wait 4s of silence before continuing
+      offset += 4000
 
     } else if (entry.settings.effect == 'heading') {
       entry.position = offset / 1000

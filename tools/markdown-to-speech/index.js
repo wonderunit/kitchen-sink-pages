@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const markdownToHtml = require('./markdown-to-html')
-const extractSpeakableText = require('./extract-speakable-text')
+const { extractSpeakableText, Speakable } = require('./extract-speakable-text')
 const TTS = require('./text-to-speech')
 const calculateDuration = require('./calculate-duration')
 const updateHtmlWithTimestamps = require('./update-html-with-timestamps')
@@ -20,6 +20,20 @@ const concatAudio = require('./concat-audio')
 
   // extract the speakable text from the HTML
   let speakable = extractSpeakableText(htmlString)
+
+  // inject the byline
+  //
+  // TODO extract data from .md front matter
+  let byline = 'Wonder Unit'
+  let published = 'August 18th, 2020'
+  //
+  speakable.splice(1, 1, Speakable({
+    id: 'byline',
+    text: `An article by ${byline}. First Published ${published}.`,
+    withSettings: {
+      effect: 'byline'
+    }
+  }))
 
   // generate the source audio
   for (let { id, filename, text, settings } of speakable) {

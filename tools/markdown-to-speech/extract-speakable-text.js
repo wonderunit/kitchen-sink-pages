@@ -14,6 +14,23 @@ const defaultSettings = {
   effect: undefined
 }
 
+const Speakable = ({ id, text, withSettings }) => {
+  let settings = {
+    ...defaultSettings,
+    ...withSettings
+  }
+  let hash = crypto.createHash('md5').update(JSON.stringify({ text, settings })).digest('hex')
+  let filename = `${id}-${hash}.wav`
+
+  return {
+    id,
+    text,
+    settings,
+    hash,
+    filename
+  }
+}
+
 const extractSpeakableText = htmlString => {
   const dom = new JSDOM(htmlString)
 
@@ -42,25 +59,17 @@ const extractSpeakableText = htmlString => {
         effect = undefined
     }
 
-    let settings = {
-      ...defaultSettings,
+    let withSettings = {
       effect
     }
 
-    let hash = crypto.createHash('md5').update(JSON.stringify({ text, settings })).digest('hex')
-
-    let filename = `${id}-${hash}.wav`
-
-    data.push({
-      id,
-      text,
-      hash,
-      filename,
-      settings
-    })
+    data.push(Speakable({ id, text, withSettings }))
   }
 
   return data
 }
 
-module.exports = extractSpeakableText
+module.exports = {
+  extractSpeakableText,
+  Speakable
+}
