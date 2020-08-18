@@ -389,13 +389,15 @@ span[name]::after {
     position: absolute;
     display: inline-block;
     vertical-align: middle;
-    margin-left: -0.7em;
+    text-align: center;
+    margin-left: -1em;
     line-height: 1;
     font-size: 80%;
     margin-top: 0.25em;
     opacity: 0;
     transition: opacity 0.3s;
     color: lightslategrey;
+    width: 1em;
   }
   *:hover > .header-anchor {
     opacity: 1;
@@ -425,7 +427,7 @@ audio[data-audio-player] + p {
     margin-left: -2em;
     line-height: 1;
     font-size: 80%;
-    margin-top: 0.2em;
+    margin-top: 0.25em;
     opacity: 0;
     transition: opacity 0.3s;
 
@@ -434,11 +436,6 @@ audio[data-audio-player] + p {
     background-size: contain;
     width: 1em;
     height: 1em;
-  }
-  .speaker-icon:after {
-    content: '';
-    position: absolute;
-    padding: 1em;
   }
   *:hover > .speaker-icon {
     opacity: 1;
