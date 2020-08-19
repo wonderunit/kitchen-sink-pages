@@ -773,6 +773,6 @@ blockquote:not(.pullquote) > * {
   height: 100%;
   background-color: #ffc;
   z-index: -1;
-  margin: -0.5rem -0.75rem;
-  padding: 0.5rem 0.75rem;
+  margin: -0.3rem -0.6rem;
+  padding: 0.3rem 0.6rem;
 }
