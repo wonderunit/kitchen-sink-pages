@@ -19,6 +19,7 @@ const init = () => {
   let onPlay = () => {
     ui.querySelector('.button').classList.remove('button--play')
     ui.querySelector('.button').classList.add('button--pause')
+    ui.classList.add('audio-player--active')
   }
 
   // attach currentTime listener
