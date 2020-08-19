@@ -27,7 +27,7 @@ const concatAudio = require('./concat-audio')
   let byline = 'Wonder Unit'
   let published = 'August 18th, 2020'
   //
-  speakable.splice(1, 1, Speakable({
+  speakable.splice(1, 0, Speakable({
     id: 'byline',
     text: `An article by ${byline}. First Published ${published}.`,
     withSettings: {
