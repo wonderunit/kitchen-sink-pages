@@ -109,7 +109,7 @@ const concatAudio = (speakable, filepath) => {
     '-filter_complex', filtergraph,
 
     '-ac', 1,
-    '-b:a', '192k',
+    '-b:a', '128k',
     '-ar', '44100',
 
     '-y',
