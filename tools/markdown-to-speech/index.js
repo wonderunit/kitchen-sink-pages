@@ -8,7 +8,7 @@ const updateHtmlWithTimestamps = require('./update-html-with-timestamps')
 const concatAudio = require('./concat-audio')
 
 ;(async () => {
-  let markdownFilePath = './A-Future-of-Visual-Storytelling.md'
+  let markdownFilePath = path.join(__dirname, 'A-Future-of-Visual-Storytelling.md')
 
   // create the output folder
   if (fs.existsSync('output') == false) {
