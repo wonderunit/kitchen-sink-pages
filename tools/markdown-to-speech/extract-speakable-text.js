@@ -52,8 +52,6 @@ const extractSpeakableText = htmlString => {
         }
         break
       case 'h2':
-        effect = 'heading'
-        break
       case 'h3':
       case 'h4':
       case 'h5':
