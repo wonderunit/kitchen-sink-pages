@@ -211,7 +211,7 @@ ul li p:first-of-type {
     margin-left: -4em;
     margin-top: 0.25em;
   }
-  ul li p .speaker-icon:after {
+  ul li p .speaker-icon::after {
     padding-right: 3em;
   }
 }
