@@ -48,14 +48,16 @@ const extractSpeakableText = htmlString => {
         if (el === firstH1) {
           effect = 'title'
         } else {
-          effect = 'heading'
+          effect = 'heading' // TODO special audio for subsequent h1's
         }
         break
       case 'h2':
+        effect = 'heading'
+        break
       case 'h3':
       case 'h4':
       case 'h5':
-        effect = 'heading'
+        effect = 'subheading'
         break
       default:
         effect = undefined

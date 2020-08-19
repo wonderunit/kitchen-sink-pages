@@ -3,6 +3,7 @@ const { spawnSync } = require('child_process')
 const NULLSRC = 0
 const SFX_INTRO = 1
 const SFX_HEADING = 2
+const SFX_SUBHEADING = 3
 
 const concatAudio = (speakable, filepath) => {
   let inputs = []
@@ -11,6 +12,7 @@ const concatAudio = (speakable, filepath) => {
 
   inputs[SFX_INTRO] = 'sounds/intro.aiff'
   inputs[SFX_HEADING] = 'sounds/heading.aiff'
+  inputs[SFX_SUBHEADING] = 'sounds/subheading.aiff'
 
   let byline = speakable.find(entry => entry.settings.effect === 'byline')
 
@@ -53,17 +55,24 @@ const concatAudio = (speakable, filepath) => {
       // then wait 4s of silence before continuing
       offset += 4000
 
-    } else if (entry.settings.effect == 'heading') {
+    } else if (
+      entry.settings.effect == 'heading' ||
+      entry.settings.effect == 'subheading'
+    ) {
+      let sound = entry.settings.effect == 'heading'
+        ? SFX_HEADING
+        : SFX_SUBHEADING
+
       entry.position = offset / 1000
 
-      // play the heading sound
-      filters.push(`[${SFX_HEADING}:0]adelay=${offset},volume=1.0[s${i}fx]`)
+      // play the sound
+      filters.push(`[${sound}:0]adelay=${offset},volume=1.0[s${i}fx]`)
       outputs.push(`[s${i}fx]`)
 
       // wait 1s
       offset += 1000
 
-      // play the heading reading
+      // play the reading
       filters.push(`${inpad}adelay=${offset}${outpad}`)
       outputs.push(outpad)
       offset = offset + (entry.duration * 1000)
