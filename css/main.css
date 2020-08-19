@@ -764,6 +764,15 @@ blockquote:not(.pullquote) > * {
 }
 
 [data-speak-active] {
-  color: red;
+  position: relative;
+}
+[data-speak-active]::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
   background-color: #ffc;
+  z-index: -1;
+  margin: -0.5rem -0.75rem;
+  padding: 0.5rem 0.75rem;
 }
