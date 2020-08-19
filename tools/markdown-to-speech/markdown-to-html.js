@@ -17,7 +17,9 @@ const paragraphIds = (md, opts) => {
 const markdownToHtml = filepath => {
   const markdownString = fs.readFileSync(filepath, 'utf-8')
 
-  let md = new MarkdownIt()
+  let md = new MarkdownIt({
+    typographer: true
+  })
     .use(paragraphIds)
     .use(require('markdown-it-anchor'), {
       permalink: true,
