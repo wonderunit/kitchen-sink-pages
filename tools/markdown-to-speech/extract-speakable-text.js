@@ -14,11 +14,7 @@ const defaultSettings = {
   effect: undefined
 }
 
-const Speakable = ({ id, text, withSettings }) => {
-  let settings = {
-    ...defaultSettings,
-    ...withSettings
-  }
+const Speakable = ({ id, text, settings }) => {
   let hash = crypto.createHash('md5').update(JSON.stringify({ text, settings })).digest('hex')
   let filename = `${id}-${hash}.wav`
 
@@ -42,30 +38,37 @@ const extractSpeakableText = htmlString => {
 
     let text = el.textContent.replace(/¶\s?/g, '')
 
-    let effect = undefined
+    let changes = {}
+
     switch (el.tagName.toLowerCase()) {
       case 'h1':
         if (el === firstH1) {
-          effect = 'title'
+          changes.effect = 'title'
+          changes.audioConfig = { speakingRate: '1.0' }
         } else {
-          effect = 'heading'
+          changes.effect = 'heading'
         }
         break
       case 'h2':
       case 'h3':
       case 'h4':
       case 'h5':
-        effect = 'subheading'
+        changes.effect = 'subheading'
         break
       default:
-        effect = undefined
+        changes.effect = undefined
     }
 
-    let withSettings = {
-      effect
+    let settings = {
+      ...defaultSettings,
+      effect: changes.effect,
+      audioConfig: {
+        ...defaultSettings.audioConfig,
+        ...changes.audioConfig
+      }
     }
 
-    data.push(Speakable({ id, text, withSettings }))
+    data.push(Speakable({ id, text, settings }))
   }
 
   return data
@@ -73,5 +76,6 @@ const extractSpeakableText = htmlString => {
 
 module.exports = {
   extractSpeakableText,
-  Speakable
+  Speakable,
+  defaultSettings
 }

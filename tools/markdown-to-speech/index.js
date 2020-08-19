@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 const markdownToHtml = require('./markdown-to-html')
-const { extractSpeakableText, Speakable } = require('./extract-speakable-text')
+const { extractSpeakableText, Speakable, defaultSettings } = require('./extract-speakable-text')
 const TTS = require('./text-to-speech')
 const calculateDuration = require('./calculate-duration')
 const updateHtmlWithTimestamps = require('./update-html-with-timestamps')
@@ -30,7 +30,8 @@ const concatAudio = require('./concat-audio')
   speakable.splice(1, 0, Speakable({
     id: 'byline',
     text: `An article by ${byline}. First Published ${published}.`,
-    withSettings: {
+    settings: {
+      ...defaultSettings,
       effect: 'byline'
     }
   }))
