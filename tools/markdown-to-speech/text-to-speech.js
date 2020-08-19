@@ -1,7 +1,8 @@
+const path = require('path')
 const textToSpeech = require('@google-cloud/text-to-speech')
 
 const client = new textToSpeech.TextToSpeechClient({
-  keyFilename: './tts.json'
+  keyFilename: path.join(__dirname, './tts.json')
 })
 
 const generate = async ({ text, settings }) => {
