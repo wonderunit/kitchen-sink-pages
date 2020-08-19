@@ -34,9 +34,7 @@ const Speakable = ({ id, text, withSettings }) => {
 const extractSpeakableText = htmlString => {
   const dom = new JSDOM(htmlString)
 
-  // omit the title H1
-  // let titleHeading = dom.window.document.querySelector('h1')
-  // titleHeading.parentNode.removeChild(titleHeading)
+  let firstH1 = dom.window.document.querySelector('h1')
 
   let data = []
   for (let el of dom.window.document.querySelectorAll('h1, h2, h3, h4, h5, p')) {
@@ -47,7 +45,11 @@ const extractSpeakableText = htmlString => {
     let effect = undefined
     switch (el.tagName.toLowerCase()) {
       case 'h1':
-        effect = 'title'
+        if (el === firstH1) {
+          effect = 'title'
+        } else {
+          effect = 'heading'
+        }
         break
       case 'h2':
       case 'h3':
