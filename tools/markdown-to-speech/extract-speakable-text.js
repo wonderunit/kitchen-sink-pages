@@ -4,12 +4,12 @@ const crypto = require('crypto')
 const defaultSettings = {
   voice: {
     'languageCode': 'en-US',
-    'name': 'en-US-Wavenet-D'
+    'name': 'en-US-Wavenet-B'
   },
   audioConfig: {
     audioEncoding: 'LINEAR16',
-    pitch: '-5.00',
-    'speakingRate': '1.25'
+    pitch: '-6.00',
+    'speakingRate': '1.3'
   },
   effect: undefined
 }
