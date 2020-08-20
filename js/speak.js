@@ -81,6 +81,9 @@ const init = () => {
   // attach currentTime listener
   player.addEventListener('timeupdate', onTimeUpdate)
 
+  // don't highlight when paused
+  player.addEventListener('pause', () => renderHighlight(null))
+
   // attach audio player control on click
   let els = document.querySelectorAll('[data-speak]')
   for (let el of els) {
