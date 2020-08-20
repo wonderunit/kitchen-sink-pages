@@ -842,10 +842,21 @@ body .audio-player--fixed {
   background-color:rgba(106, 76, 231);
 }
 
-[data-speak-active] {
+
+h1[id],
+h2[id],
+h3[id],
+h4[id],
+h5[id],
+p[id^=p] {
   position: relative;
 }
-[data-speak-active]::before {
+h1[id]::before,
+h2[id]::before,
+h3[id]::before,
+h4[id]::before,
+h5[id]::before,
+p[id^=p]::before {
   position: absolute;
   content: '';
   width: 100%;
@@ -854,4 +865,15 @@ body .audio-player--fixed {
   z-index: -1;
   margin: -0.3rem -0.6rem;
   padding: 0.3rem 0.6rem;
+
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+h1[data-speak-active]::before,
+h2[data-speak-active]::before,
+h3[data-speak-active]::before,
+h4[data-speak-active]::before,
+h5[data-speak-active]::before,
+p[data-speak-active]::before {
+  opacity: 1;
 }
