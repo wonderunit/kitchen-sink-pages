@@ -10,7 +10,7 @@ const smoothScrollTo = el => {
 }
 
 const renderHighlight = curr => {
-  let prev = document.querySelector('[data-speak-active') 
+  let prev = document.querySelector('[data-speak-active]') 
   if (prev) {
     delete prev.dataset.speakActive
   }
