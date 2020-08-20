@@ -1,12 +1,9 @@
 const smoothScrollTo = el => {
-  document.documentElement.style.scrollBehavior = 'smooth'
-  if (
-    el.getBoundingClientRect().bottom > (document.documentElement.clientHeight - 100) ||
-    el.getBoundingClientRect().top < 0
-  ) {
-    document.documentElement.scrollTop = el.offsetTop - 100 - 50
-  }
-  document.documentElement.style.scrollBehavior = ''
+  el.scrollIntoView({
+    block: 'start',
+    inline: 'nearest',
+    behavior: 'smooth'
+  })
 }
 
 const renderHighlight = curr => {
