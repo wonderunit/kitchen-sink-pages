@@ -1,5 +1,19 @@
 const { spawnSync } = require('child_process')
 
+// const trace = speakable => {
+//   const fract = x => x - Math.floor(x)
+//   const format = seconds => {
+//     let m = Math.floor(seconds / 60)
+//     let s = Math.floor(fract(seconds / 60) * 60)
+//     return `${m}:${s.toString().padStart(2, '0')}`
+//   }
+//   for (let entry of speakable) {
+//     if (entry.settings.effect) {
+//       console.log(format(entry.position), entry.text)
+//     }
+//   }
+// }
+
 const NULLSRC = 0
 const SFX_INTRO = 1
 const SFX_HEADING = 2
@@ -84,6 +98,9 @@ const concatAudio = (speakable, filepath) => {
       offset = offset + (entry.duration * 1000)
     }
   }
+
+  // for debugging
+  // trace(speakable)
 
   // round off for better comparison
   for (let entry of speakable) {
