@@ -156,7 +156,9 @@ span[data-image] .caption {
   text-align: center;
 }
 .right-sidebar {
+  grid-row: 2 / -1;
   grid-column: left-end / right-end;
+  position: relative;
 }
 .container > footer {
   grid-column: full;

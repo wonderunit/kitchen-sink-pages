@@ -12,8 +12,7 @@ function update() {
   for (let aside of asides) {
     let name = aside.getAttribute('name')
     let span = document.querySelector(`span[name="${name}"]`)
-    // let containerRect = document.querySelector('.right-sidebar').getBoundingClientRect();
-    let containerRect = document.body.getBoundingClientRect()
+    let containerRect = document.querySelector('.right-sidebar').getBoundingClientRect()
     let elemRect = span.getBoundingClientRect()
 
     let styles = window.getComputedStyle(span)
