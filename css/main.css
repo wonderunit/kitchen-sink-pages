@@ -695,6 +695,12 @@ blockquote:not(.pullquote) > * {
 
 /* audio player */
 
+body .audio-player--fixed {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
 .audio-player {
   margin-top: 1rem;
   margin-left: 1rem;
@@ -713,13 +719,14 @@ blockquote:not(.pullquote) > * {
 
   padding: 0.5rem 0.75rem;
 
-  position: fixed;
-  top: 0;
-  z-index: 1;
-
-  opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s;
+
+  position: absolute;
+  top: 0;
+
+  /* opacity: 0; */
+  opacity: 1;
 }
 .audio-player--active {
   opacity: 1;

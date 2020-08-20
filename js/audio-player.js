@@ -57,6 +57,17 @@ const init = () => {
   document.addEventListener('pointerup', () => {
     ui.querySelector('.progress-bar').removeEventListener('pointermove', onPointerMove)
   })
+
+  // when header scrolls in or out of view, update ui
+  let callback = ([entry]) => {
+    if (entry.intersectionRatio > 0) {
+      ui.classList.remove('audio-player--fixed')
+    } else {
+      ui.classList.add('audio-player--fixed')
+    }
+  }
+  let observer = new IntersectionObserver(callback, { threshold: 0 })
+  observer.observe(document.querySelector('header'))
 }
 
 export default {
