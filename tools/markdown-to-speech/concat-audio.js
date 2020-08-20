@@ -85,6 +85,11 @@ const concatAudio = (speakable, filepath) => {
     }
   }
 
+  // round off for better comparison
+  for (let entry of speakable) {
+    entry.position = parseFloat(entry.position.toFixed(8))
+  }
+
   let last = speakable[speakable.length - 1]
   let total = last.position + last.duration
  
