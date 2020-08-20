@@ -1,3 +1,5 @@
+const clamp = (x, min, max) => x < min ? min : x > max ? max : x
+
 const init = () => {
   let player = document.querySelector('audio[data-audio-player]')
   let ui = document.querySelector('.audio-player')
@@ -29,13 +31,31 @@ const init = () => {
   player.addEventListener('pause', onPause)
   player.addEventListener('play', onPlay)
 
-  // setup ui
-  ui.addEventListener('click', () => {
+  // button: pause/play on click
+  ui.querySelector('.button').addEventListener('click', event => {
     if (player.paused) {
       player.play()
     } else {
       player.pause()
     }
+  })
+
+  // progress bar: scrubbing
+  let onPointerMove = event => {
+    let x = event.offsetX
+    let w = ui.querySelector('.progress-bar').getBoundingClientRect().width
+    let v = clamp(x / w, 0, 1)
+    player.currentTime = player.duration * v
+  }
+  ui.querySelector('.progress-bar').addEventListener('pointerdown', () => {
+    ui.querySelector('.progress-bar').addEventListener('pointermove', onPointerMove)
+    onPointerMove(event)
+  })
+  ui.querySelector('.progress-bar').addEventListener('pointerup', () => {
+    onPointerMove(event)
+  })
+  document.addEventListener('pointerup', () => {
+    ui.querySelector('.progress-bar').removeEventListener('pointermove', onPointerMove)
   })
 }
 

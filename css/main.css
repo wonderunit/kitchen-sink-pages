@@ -735,6 +735,8 @@ blockquote:not(.pullquote) > * {
   padding: 0.5rem 0.75rem;
 
   mix-blend-mode: multiply;
+
+  pointer-events: none;
 }
 @media (min-width: 640px) {
   .audio-player {
