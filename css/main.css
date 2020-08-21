@@ -365,6 +365,12 @@ aside[name].margin-note::after {
   font-size: 70%;
   max-width: var(--sidebar-max);
 }
+.table-of-contents a,
+.table-of-contents a:active,
+.table-of-contents a:visited {
+  color: darkslategrey;
+  text-decoration: none;
+}
 .table-of-contents ol {
   padding: 0;
   margin: 0;
