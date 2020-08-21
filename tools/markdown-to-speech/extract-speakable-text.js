@@ -44,7 +44,7 @@ const extractSpeakableText = htmlString => {
       case 'h1':
         if (el === firstH1) {
           changes.effect = 'title'
-          changes.audioConfig = { speakingRate: '1.0' }
+          // changes.audioConfig = { speakingRate: '1.0' }
         } else {
           changes.effect = 'heading'
         }
