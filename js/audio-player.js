@@ -68,6 +68,9 @@ const init = () => {
   }
   let observer = new IntersectionObserver(callback, { threshold: 0 })
   observer.observe(document.querySelector('header'))
+
+  // show initially
+  ui.classList.add('audio-player--active')
 }
 
 export default {
