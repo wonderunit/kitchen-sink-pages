@@ -294,6 +294,13 @@ figure {
 }
 */
 
+.font-normal {
+  font-weight: 400;
+}
+.font-bold {
+  font-weight: 800;
+}
+
 /* sidenotes */
 
 aside[name] {
@@ -556,7 +563,6 @@ audio[data-audio-player] + p {
 }
 .inner-cover .headline {
   font-size: 3rem;
-  font-weight: 800;
   line-height: 0.9;
   margin: 0;
 }
@@ -914,3 +920,37 @@ h5[data-speak-active]::before,
 p[data-speak-active]::before {
   opacity: 1;
 }
+
+/* storyboarder page */
+
+.container > header.header--tall {
+  height: calc(60vh + 4rem);
+}
+
+.button--download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: backgrond-color 0.2s;
+  animation: button-pulse 1s ease-in-out infinite alternate;
+
+  text-decoration: none;
+  color: white;
+}
+.button--download:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+@keyframes button-pulse {
+  0% {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
