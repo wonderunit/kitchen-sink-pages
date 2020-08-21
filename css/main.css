@@ -932,7 +932,7 @@ p[data-speak-active]::before {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
 
   background-color: rgba(255, 255, 255, 0.2);
   transition: backgrond-color 0.2s;
