@@ -243,9 +243,11 @@ h2 + h3 {
   margin: 0.125em 0 0;
 }
 
-a {
-  text-decoration: none;
-  color: darkslategrey;
+a,
+a:active,
+a:visited {
+  color: rgba(17, 49, 49);
+  text-decoration: underline solid rgb(10, 20, 20);
 }
 
 figure {
@@ -338,6 +340,22 @@ span[name]::after {
     content: " ";
   }
 }
+
+span[name].margin-note {
+  text-decoration: underline solid rgba(47, 79, 79, 0.3);
+}
+span[name].margin-note::after {
+  counter-increment: none;
+  content: none;
+}
+aside[name].margin-note::before {
+  content: none;
+}
+aside[name].margin-note::after {
+  counter-increment: none;
+  content: none;
+}
+
 
 /* table of contents */
 
@@ -578,6 +596,12 @@ audio[data-audio-player] + p {
   margin: 0;
   padding: 0;
   color: rgba(255, 255, 255, 0.8);
+}
+.menu a,
+.menu a:active,
+.menu a:visited {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
 }
 .menu {
   display: flex;
