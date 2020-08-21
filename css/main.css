@@ -407,8 +407,12 @@ aside[name].margin-note::after {
 
 /* permalink pilcrow */
 
-.header-anchor {
+.header-anchor,
+.header-anchor:active,
+.header-anchor:visited {
   display: none;
+  color: lightslategrey;
+  text-decoration: none;
 }
 @media (min-width: 640px) {
   .header-anchor {
@@ -422,7 +426,6 @@ aside[name].margin-note::after {
     margin-top: 0.25em;
     opacity: 0;
     transition: opacity 0.3s;
-    color: lightslategrey;
     width: 1em;
   }
   *:hover > .header-anchor {
@@ -442,8 +445,12 @@ audio[data-audio-player] + p {
 
 /* speaker icon */
 
-.speaker-icon {
+.speaker-icon,
+.speaker-icon:visited,
+.speaker-icon:active {
   display: none;
+
+  text-decoration: none;
 }
 @media (min-width: 640px) {
   .speaker-icon {
