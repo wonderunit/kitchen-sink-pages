@@ -6,6 +6,8 @@ const init = () => {
 
   let context = { playedOnce: false }
 
+  if (!player || !ui) return
+
   let onTimeUpdate = event => {
     // get the current time
     let { currentTime } = event.target

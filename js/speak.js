@@ -20,6 +20,8 @@ const init = () => {
   let context = { curr: null }
   let player = document.querySelector('audio[data-audio-player]')
 
+  if (!player) return
+
   let onKeyDown = event => {
     if (event.key == 's') {
       player.currentTime = 0
