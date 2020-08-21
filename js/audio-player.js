@@ -4,6 +4,8 @@ const init = () => {
   let player = document.querySelector('audio[data-audio-player]')
   let ui = document.querySelector('.audio-player')
 
+  let context = { playedOnce: false }
+
   let onTimeUpdate = event => {
     // get the current time
     let { currentTime } = event.target
@@ -19,6 +21,8 @@ const init = () => {
   }
 
   let onPlay = () => {
+    context.playedOnce = true
+
     ui.querySelector('.button').classList.remove('button--play')
     ui.querySelector('.button').classList.add('button--pause')
     ui.classList.add('audio-player--active')
@@ -64,6 +68,11 @@ const init = () => {
       ui.classList.remove('audio-player--fixed')
     } else {
       ui.classList.add('audio-player--fixed')
+
+      // hide if 1) not playing, 2) never played before, and user scrolled past the header
+      if (player.paused && context.playedOnce == false) {
+        ui.classList.remove('audio-player--active')
+      }
     }
   }
   let observer = new IntersectionObserver(callback, { threshold: 0 })
