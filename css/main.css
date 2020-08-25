@@ -584,6 +584,19 @@ audio[data-audio-player] + p {
   line-height: 0.9;
   margin: 0;
 }
+.cover--main .headline.font-thin {
+  letter-spacing: -0.01em;
+}
+.cover--main .subheading {
+  font-size: 1.25rem;
+  margin: 0.5em 0 1.25em 0;
+  line-height: 1.35;
+}
+.cover--main p {
+  opacity: 0.5;
+  font-size: 80%;
+  line-height: 1;
+}
 @media (min-width: 640px) {
   .cover--main .cover {
     min-height: 14em;
