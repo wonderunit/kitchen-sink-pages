@@ -14,9 +14,7 @@ const paragraphIds = (md, opts) => {
   }
 }
 
-const markdownToHtml = filepath => {
-  const markdownString = fs.readFileSync(filepath, 'utf-8')
-
+const markdownToHtml = markdownString => {
   let md = new MarkdownIt({
     typographer: true
   })

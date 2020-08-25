@@ -16,7 +16,8 @@ const concatAudio = require('./concat-audio')
   }
 
   // convert markdown to html
-  let htmlString = markdownToHtml(markdownFilePath)
+  const markdownString = fs.readFileSync(markdownFilePath, 'utf-8')
+  let htmlString = markdownToHtml(markdownString)
 
   // extract the speakable text from the HTML
   let speakable = extractSpeakableText(htmlString)
