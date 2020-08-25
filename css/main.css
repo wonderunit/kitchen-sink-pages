@@ -645,7 +645,6 @@ audio[data-audio-player] + p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 1rem;
   position: relative;
 }
 .menu > li > a {
