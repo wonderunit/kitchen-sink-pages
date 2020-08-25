@@ -54,6 +54,7 @@ body {
 :root {
   --article-measure: auto;
   --sidebar-max: 16rem;
+  --container-sides: 1rem;
 }
 .article-measure {
   max-width: var(--article-measure);
@@ -62,11 +63,11 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns:
-    [full-start] 1rem
+    [full-start] var(--container-sides)
     [left-start] 1fr
     [article-start right-start] var(--article-measure)
     [article-end left-end] 1fr
-    [right-end] 1rem [full-end];
+    [right-end] var(--container-sides) [full-end];
 
   height: 100vh;
 }
@@ -968,3 +969,14 @@ p[data-speak-active]::before {
   }
 }
 
+.features-grid {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 0.5rem;
+  justify-content: space-between;
+  padding: 0 var(--container-sides);
+}
+.features-grid > div[style*="--aspect-ratio"] {
+  margin: 0;
+}
