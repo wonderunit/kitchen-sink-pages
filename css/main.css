@@ -951,7 +951,7 @@ p[data-speak-active]::before {
   opacity: 1;
 }
 
-/* storyboarder page */
+/* technology pages (storyboarder, shot core) */
 
 .container > header.header--tall {
   height: calc(60vh + 4rem);
