@@ -1,5 +1,11 @@
 @font-face {
   font-family: THICCCBoi;
+  font-weight: 100;
+  src: url("../font/THICCCBOI-Thin.woff2") format("opentype");
+}
+
+@font-face {
+  font-family: THICCCBoi;
   font-weight: 400;
   src: url("../font/THICCCBOI-Regular.woff2") format("opentype");
 }
@@ -293,6 +299,10 @@ figure {
   width: 100vw;
 }
 */
+
+.font-thin {
+  font-weight: 100;
+}
 
 .font-normal {
   font-weight: 400;
